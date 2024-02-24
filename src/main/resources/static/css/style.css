@@ -60,6 +60,8 @@ button:focus {
     margin: auto;
 
 }
+
+
 .max-container__footer {
     max-width: 1000px;
     padding: 0.5rem;
@@ -175,7 +177,8 @@ header__nav__login button {
 
 /*HOME*/
 #home {
-    background-color: var(--color-primary);
+    background: rgb(231,243,245);
+    background: linear-gradient(90deg, rgba(231,243,245,1) 0%, rgba(147,204,246,1) 100%);
     color: var(--color-text);
     padding: 7rem 1rem 5rem;
     text-align: center;
