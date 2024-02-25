@@ -19,6 +19,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
@@ -51,8 +52,13 @@ button:focus {
 
 /*Common*/
 .section {
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+
+
 }
 
 .max-container {
@@ -63,11 +69,13 @@ button:focus {
 
 
 .max-container__footer {
-    max-width: 1000px;
+    max-width: 1200px;
     padding: 0.5rem;
     margin: auto;
 }
+
 .section__footer {
+    border-top: 1px solid transparent;
     padding: 1rem;
     text-align: center;
 }
@@ -86,61 +94,46 @@ button:focus {
 /*Header*/
 
 .header {
-    background: rgb(231,243,245);
-    background: linear-gradient(90deg, rgba(231,243,245,1) 0%, rgba(147,204,246,1) 100%);
+    background: rgb(231, 243, 245);
+    background: linear-gradient(90deg, rgba(231, 243, 245, 1) 0%, rgba(147, 204, 246, 1) 100%);
     position: fixed;
     top: 0;
     width: 100%;
+    height: 10%;
     padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     z-index: 1;
     transition: all 300ms ease;
-}
 
-.header--dark {
-    background-color: var(--color-primary);
-    box-shadow: 0 20px 50px rgba(8, 112, 184, 0.7);
-}
-.search_container {
-}
-.header__logo {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    justify-content: space-between;
 }
 
-.header__logo__img {
-    width: 90px;
-    height: 36px;
-
-}
-
-.header__logo__title {
-    font-size: 1.8rem;
-}
-
-.header__menu {
-    display: flex;
-    gap: 4px;
-}
-.header__nav {
+.nav-bar {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.header__nav__login{
-    border: white solid 2px;
-    background-color: transparent;
-    border-radius: 20px;
-    text-align: center;
-    top: 4px;
-    padding-top: 6px;
-    margin-left: 700px;
+.nav-bar__menu{
+
+    align-items: center;
+    display: flex;
+    gap: 15px;
+
 }
-header__nav__login button {
-    color: blue !important; /* 중요성 추가 */
+
+.nav-bar__tools  {
+    align-items: center;
+    display: flex;
 }
+.nav-bar__logo{
+    width: 100px;
+}
+
+
+
+
+
 
 .search-container {
     position: relative;
@@ -159,11 +152,17 @@ header__nav__login button {
     transform: translateY(-50%);
     pointer-events: none;
 }
+
 .header__menu__item {
     color: RGB(94, 110, 133);
-    padding: 8px 16px;
-    display: block;
+    padding: 0px 10px;
+    display: flex;
+    margin-right: 5px;
     border-bottom: 1px solid transparent;
+}
+
+.header__menu__item_right {
+    text-align: right;
 }
 
 .header__menu__item:hover {
@@ -175,10 +174,16 @@ header__nav__login button {
     color: #7c94d0;
 }
 
+.header__other {
+    display: inline-block;
+    margin-left: 10px;
+    text-align: right;
+}
+
 /*HOME*/
 #home {
-    background: rgb(231,243,245);
-    background: linear-gradient(90deg, rgba(231,243,245,1) 0%, rgba(147,204,246,1) 100%);
+    background: rgb(231, 243, 245);
+    background: linear-gradient(90deg, rgba(231, 243, 245, 1) 0%, rgba(147, 204, 246, 1) 100%);
     color: var(--color-text);
     padding: 7rem 1rem 5rem;
     text-align: center;
@@ -195,6 +200,7 @@ header__nav__login button {
 .home__title {
     font-size: 3rem;
     margin-bottom: 1rem;
+
 }
 
 .home__title--strong {
@@ -435,7 +441,6 @@ header__nav__login button {
 }
 
 
-
 .testimonial__img {
     width: 150px;
     height: 150px;
@@ -473,8 +478,8 @@ header__nav__login button {
 
 /*FOOTER*/
 #contact {
-    background-color: var(--color-primary);
-    color: var(--color-text);
+    background-color: var(--color-white);
+    color: var(--color-primary);
 }
 
 .contact__links {
@@ -505,23 +510,45 @@ header__nav__login button {
     margin: 1rem 0;
 }
 
-.mytitle{
-    background: #041833;
-    background: linear-gradient(to bottom, #041833 32%, #CFCFCF 73%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.footer__text {
+    text-align: left;
+    color: lightslategray;
+    font-weight: lighter;
+    font-size: small;
+}
 
+.footer__text a {
+    text-align: left;
+    color: lightslategray;
 }
 
 
 .article__test {
-    border: 10px solid black;
-    width:  550px;
+    border: 2px double black;
+    width: 40%;
     height: 500px;
-    display: inline-block;
-    margin: auto;
+    /*display: inline-block;*/
+    padding: 5px;
+    margin: 5px;
 }
 
 .aside__message {
-    border: 10px solid black;
+    border: 2px double black;
+    width: 40%;
+    height: 500px;
+    /*display: inline-block;*/
+    padding: 5px;
+    margin: 5px;
+    transform: translate(1850px, -1020px);
+    transform: scale(0.2,0.2); /* x와 y 좌표 모두 지정 */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.container__article {
+    background-color: #03e8f9;
+    border: 1px solid black;
 }

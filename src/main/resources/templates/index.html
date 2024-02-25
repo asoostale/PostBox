@@ -35,37 +35,43 @@
     <script type="module" src="js/main.js" defer></script>
     <script type="module" src="js/custom/type.js" defer></script>
 </head>
+
+
+<style>
+    body {
+        background-color: #f8f8f8;
+    }
+</style>
 <body>
+
+
 <!-- Header -->
 <header class="header">
-    <div class="header__logo">
-        <img class="header__logo__img" src="img/logo.png" alt="logo"/>
-    </div>
-    <nav class="header__nav">
-        <ul class="header__menu">
-            <li><a class="header__menu__item active" href="#">인기 글</a></li>
-            <li><a class="header__menu__item" href="#about">자유게시판</a></li>
-            <li><a class="header__menu__item" href="#skills">질문게시판</a></li>
-            <li><a class="header__menu__item" href="#work">공지사항</a></li>
-            <li><a class="header__menu__item" href="#work">Qna</a></li>
-            <div class="search_container">
-                <input type="search" name="#" id="search-input" placeholder="통합검색">
-                <i class="bi bi-search"></i>
-            </div>
-            <div class="header__nav__login">
-                <li>
-                    <button>로그인</button>
-                </li>
-            </div>
-            <select name="lang" id="#lang">언어선택
-                <option value="한국어">한국어</option>
-                <option value="ENG">ENG</option>
-            </select>
-
-
+    <nav class="nav-bar">
+        <ul class="nav-bar__menu">
+            <li><img class="nav-bar__logo" src="img/logo.png" alt="logo"/></li>
+            <li><a class="nav-bar__item active" href="#"><p style="color: #050a13">인기 글</p></a></li>
+            <li><a class="nav-bar__item" href="#about"><p style="color: #1b1e26">자유게시판</p></a></li>
+            <li><a class="nav-bar__item" href="#skills"><p style="color: #1b1e26">질문게시판</p></a></li>
+            <li><a class="nav-bar__item" href="#work"><p style="color: #1b1e26">공지사항</p></a></li>
+            <li><a class="nav-bar__item" href="#work"><p style="color: #1b1e26">qna</p></a></li>
+        </ul>
+        <ul class="nav-bar__tools">
+            <li style="margin-right: 20px"><input type="search" name="#" id="search-input" placeholder="통합검색"></li>
+            <li style="margin-right: 20px">
+                <button class="nav-bar__login">로그인</button>
+            </li>
+            <li style="margin-right: 20px">
+                <select name="lang" id="lang">
+                    <option value="한국어">한국어</option>
+                    <option value="ENG">ENG</option>
+                </select>
+            </li>
         </ul>
     </nav>
 </header>
+
+
 <!-- Main -->
 <main>
     <!-- Home -->
@@ -82,22 +88,29 @@
     </section>
     <!-- About -->
     <section id="about" class="section max-container">
-        <article class="article__test">
-            <h2>추천글</h2>
-            <p>내용</p>
-        </article>
-        <article class="article__test">
-            <h2>자유게시판</h2>
-            <p>내용</p>
-        </article>
-        <article class="article__test">
-            <h2>질문게시판</h2>
-            <p>내용</p>
-        </article>
-        <article class="article__test">
-            <h2>공지사항</h2>
-            <p>내용</p>
-        </article>
+        <div class="container">
+            <div class="container__article
+">
+                <div>추천글</div>
+                <div>내용</div>
+            </div>
+            <div class="container__article">
+                <div>자유게시판</div>
+                <div>내용</div>
+            </div>
+            <div class="container__article">
+                <div>질문게시판</div>
+                <div>내용</div>
+            </div>
+            <div class="container__article">
+                <div>공지사항</div>
+                <div>내용</div>
+            </div>
+            <div class="container__article">
+                <div>쪽지함</div>
+                <div>내용</div>
+            </div>
+        </div>
     </section>
     <!-- Arrow up -->
     <aside>
@@ -122,7 +135,12 @@
                 </a>
             </li>
         </ul>
-        <p>ⓒasoostale - All rights reserved</p>
+        <div class="footer__text">
+            <p style="font-weight: lighter">ⓒasoostale - All rights reserved</p>
+            <a href="mailto:asoostale@naver.com">asoostale@naver.com</a><br>
+            <a href="tel:+01030619579">010-3061-9579</a>
+        </div>
+
     </div>
 </footer>
 
