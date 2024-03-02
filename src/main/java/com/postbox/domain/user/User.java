@@ -21,6 +21,8 @@ public class User {
     private String role;
     private String email;
 
+    private Boolean keepLogin; //로그인 기능 유지
+
     /*@OneToMany(mappedBy = "user", cascade = CascadeType.ALL);
     @JoinColumn
     private List<Message> messages = new ArrayList<>();*/

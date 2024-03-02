@@ -1,4 +1,9 @@
 spring:
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
   thymeleaf:
     cache: false
   datasource:
@@ -30,4 +35,4 @@ spring:
 
 logging.level:
   org.hibernate.SQL: debug
-  org.hibernate.type: trace
+#  org.hibernate.type: trace

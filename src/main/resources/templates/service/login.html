@@ -1,145 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- SEO -->
-    <title>PostBox📮</title>
-    <meta
-            name="description"
-            content="Portfolio for my work"
-    />
-    <meta name="author" content="asoostale"/>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
-    <!-- OG (Open Graph Data) -->
-    <meta property="og:title" content="커뮤니티"/>
-    <meta property="og:type" content="website"/>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
-            rel="stylesheet"
-    />
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/9eb162ac0d.js" crossorigin="anonymous"></script>
-    <!-- Typeit -->
-    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css"/>
-    <!-- Javascript -->
-    <script type="module" src="js/main.js" defer></script>
-    <script type="module" src="js/custom/type.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POSTBOX</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<!-- Header -->
-<header class="header">
-    <div class="header__logo">
-        <img class="header__logo__img" src="img/logo.png" alt="logo"/>
-    </div>
-    <nav class="header__nav">
-        <ul class="header__menu">
-            <li><a class="header__menu__item active" href="#">인기 글</a></li>
-            <li><a class="header__menu__item" href="#about">자유게시판</a></li>
-            <li><a class="header__menu__item" href="#skills">질문게시판</a></li>
-            <li><a class="header__menu__item" href="#work">공지사항</a></li>
-            <li><a class="header__menu__item" href="#work">Qna</a></li>
-            <div class="search_container">
-                <input type="search" name="#" id="search-input" placeholder="통합검색">
-                <i class="bi bi-search"></i>
+<div class="login-container">
+    <header>
+        <a href="http://localhost:8080" style="border: 0px"><img src="/img/logo.png" class="logo"/></a>
+    </header>
+    <section class="login-form">
+        <form action="#" method="post">
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="아이디를 입력해주세요 :)" required>
             </div>
-            <div class="header__nav__login">
-                <li>
-                    <button>로그인</button>
-                </li>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required>
             </div>
-            <select name="lang" id="#lang">언어선택
-                <option value="한국어">한국어</option>
-                <option value="ENG">ENG</option>
-            </select>
+            <div class="input-group">
+                <input type="checkbox" id="remember-me" name="remember-me">
+                <!--타임리프 가성라벨 추가할 것. boolean  true false 스프링2편 타임리프 체크박스 확인 -->
+                <label for="remember-me">자동로그인</label>
 
-
-        </ul>
-    </nav>
-</header>
-<!-- Main -->
-<main>
-    <!-- Home 시작-->
-    <section id="home">
-        <div class="max-container home__container">
-            <div>
-                <h2 class="home__title" aria-label="PostBox">
-                    PostBox📮<br/></h2>
-                <p class="home__description">
-                    <strong> 자유롭게 소통하는 커뮤니티 PostBox</strong>
-                </p>
             </div>
-        </div>
-    </section>
-    <!-- HOME 끝-->
+            <button type="submit" class="login-button">로그인</button>
 
-    <!-- 회원가입 시작-->
-    <main class="form-signin w-100 m-auto">
-        <form>
-            <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-            <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+            <div class="links">
+                <a href="#">회원가입</a>
+                <a href="#">계정 찾기</a>
+                <a href="#">비밀번호 찾기</a>
             </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
-
-            <div class="form-check text-start my-3">
-                <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Remember me
-                </label>
-            </div>
-            <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
         </form>
-    </main>
-    <!-- 회원가입 끝-->
-
-
-
-
-    <!-- Arrow up -->
-    <aside>
-        <a class="arrow-up" href="#home" title="back to top">
-            <i class="fa-solid fa-arrow-up"></i>
-        </a>
-    </aside>
-</main>
-<!-- Footer -->
-<footer id="contact" class="section__footer">
-    <div class="max-container__footer" mar>
-        <ul class="contact__links">
-            <li>
-                <a
-                        class="contact__link"
-                        href="https://github.com/dream-ellie"
-                        target="_blank"
-                        title="my github link"
-                        style="margin-bottom: 1px"
-                >
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </li>
-        </ul>
-        <p>ⓒasoostale - All rights reserved</p>
-    </div>
-</footer>
-
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
+    </section>
+</div>
 </body>
 </html>

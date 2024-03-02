@@ -12,7 +12,8 @@ import static jakarta.persistence.FetchType.LAZY;
 @Getter
 public class Message {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "message_id")
     private Long id;
     private String title;

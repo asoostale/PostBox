@@ -8,7 +8,7 @@ public class MainController {
 
     @GetMapping("/")
     public String cssForm() {
-        return "service/join";
+        return "service/login";
     }
 
 
