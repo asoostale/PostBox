@@ -1,40 +1,13 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOIN</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragment/header::header"/>
 <body>
-<div class="login-container">
-    <header>
-        <a href="http://localhost:8080"><img src="/img/logo.png" class="small-main-logo"/></a>
 
-    </header>
-    <section class="login-form">
-        <form action="#" method="post">
-            <div class="input-group">
-                <input type="email" id="email" name="email" placeholder="아이디를 입력해주세요 :)" required>
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required>
-            </div>
-            <div class="input-group">
-                <input type="checkbox" id="remember-me" name="remember-me">
-                <label for="remember-me">자동로그인</label>
-            </div>
-            <button type="submit" class="login-button">로그인</button>
-            <!--            <div class="login-options">-->
-            <!--                <button class="qr-login">QR코드 로그인</button>-->
-            <!--            </div>-->
-            <div class="links">
-                <a href="#">회원가입</a>
-                <a href="#">계정 찾기</a>
-                <a href="#">비밀번호 찾기</a>
-            </div>
-        </form>
-    </section>
-</div>
+
+<header th:replace="fragment/bodyHeader::bodyHeader"/>
+
+
+
+
 </body>
 </html>

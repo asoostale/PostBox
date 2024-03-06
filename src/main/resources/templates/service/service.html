@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POSTBOX</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+<head th:replace="fragment/header::header"/>
 <body>
 <div class="login-container">
     <header>
-        <a href="http://localhost:8080" style="border: 0px"><img src="/img/logo.png" class="logo"/></a>
+        <a href="http://localhost:8080"><img src="/img/logo.png" class="body__logo"/></a>
     </header>
-    <section class="login-form">
+    <section class="service_container">
         <form action="#" method="post">
             <div class="input-group">
                 <input type="email" id="email" name="email" placeholder="아이디를 입력해주세요 :)" required>
@@ -21,19 +16,20 @@
             </div>
             <div class="input-group">
                 <input type="checkbox" id="remember-me" name="remember-me">
-                <!--타임리프 가성라벨 추가할 것. boolean  true false 스프링2편 타임리프 체크박스 확인 -->
                 <label for="remember-me">자동로그인</label>
-
             </div>
             <button type="submit" class="login-button">로그인</button>
-
+            <!--            <div class="login-options">-->
+            <!--                <button class="qr-login">QR코드 로그인</button>-->
+            <!--            </div>-->
             <div class="links">
-                <a href="#">회원가입</a>
+                <a th:href="@{/join}">회원가입</a>
                 <a href="#">계정 찾기</a>
                 <a href="#">비밀번호 찾기</a>
             </div>
         </form>
     </section>
 </div>
+<!--<div th:replace="fragment/footer::footer"></div>-->
 </body>
 </html>
