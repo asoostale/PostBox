@@ -30,15 +30,21 @@ public class User {
     private Boolean keepLogin; //로그인 기능 유지
 
 
-    @OneToMany(mappedBy = "user", cascade = ALL)
+    /**
+     * casecade 삭제한 이유 => casecade = All이 상대 엔터티와 라이프 사이클이 같으면 상관없지만
+     *      * 조금이라도 다른 엔터티와 연관이 되 있따면 사용 X
+     *      ex ) Reply 같은경우 User에도 되있고, Post에도 되 있음.
+     */
+
+    @OneToMany(mappedBy = "user")
     private List<Post> posts = new ArrayList<>();
-    @OneToMany(mappedBy = "user", cascade = ALL)
+    @OneToMany(mappedBy = "user")
     private List<Reply> replies = new ArrayList<>();
-    @OneToMany(mappedBy = "user", cascade = ALL)
+    @OneToMany(mappedBy = "user")
     private List<Message> messages = new ArrayList<>();
-    @OneToMany(mappedBy = "user", cascade = ALL)
+    @OneToMany(mappedBy = "user")
     private List<SubReply> subReplies = new ArrayList<>();
-    @OneToMany(mappedBy = "user", cascade = ALL)
+    @OneToMany(mappedBy = "user")
     private List<Log> logs = new ArrayList<>();
 
 
