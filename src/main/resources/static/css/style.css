@@ -49,8 +49,11 @@ button:focus {
 }
 .logo {
     grid-area: a;
-    background-color: red;
+
+    width: 10px;
 }
+
+
 .community {
     grid-area: b;
     background-color: yellow;
