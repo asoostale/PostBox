@@ -1,16 +1,18 @@
 .header	{
 	display: flex;
 	align-items: center;
-	/* justify-content: space-between; */
+	 justify-content: space-between;
 	height: 80px;
-	padding: 0 1rem;
+	padding: 0;
 }
 /* .header에 justify-content: space-between; 대신 사용 가능 */
 .search-form {
-	width: 300px;
-	max-width: 60%;
-	margin-left: auto;
-	margin-right: 3rem;
+	width: 400px;
+/*justify-content: center;*/
+	margin-right: 45rem;
+		display: flex;
+		height: 45px;
+
 }
 .primary {
 	padding: 1rem;
@@ -19,11 +21,10 @@
 	padding: 1rem;
 }
 .secondary-a {
-	background: white;
+	background: #EEEEEE;
 }
 .secondary-b {
-	color: white;
-	background: #666;
+	background: #EEEEEE;
 }
 .footer {
 	padding: 1rem;
@@ -32,27 +33,34 @@
 }
 .modal {
 	display: none;
-	top: 80px;
+	/*top: 80px;*/
 }
 #modal-switch:checked ~ .modal {
 	display: flex;
 }
 label[for="modal-switch"] {
 	display: flex;
+	border: 1px solid #acacf3;
+
+	/*margin-right: 250px;*/
+	border-radius: 5px;
+	background: #DDEBFF;
 	align-items: center;
 	justify-content: center;
 	position: absolute;
-	top: 1.3rem;
+	top: 0.5rem;
 	right: 1rem;
-	/* z-index: 100; */
-	width: 40px;
-	height: 40px;
+	 z-index: 100;
+	width: 60px;
+	height: 60px;
 	cursor: pointer;
 	/* background: red; */
 }
 label[for="modal-switch"]:before {
-	content: "⚑";
-	font-size: 2rem;
+	content: "로그인";
+
+	border-radius: 10px;
+	font-size: 1.3rem;
 	cursor: pointer;
 }
 #modal-switch:checked ~ label[for="modal-switch"]:before {
@@ -75,6 +83,9 @@ label[for="modal-switch"] span {
 	}
 	.header {
 		width: 100%;
+	}
+	.header p{
+		margin-left: auto;
 	}
 	.menu {
 		width: 100%;
@@ -107,5 +118,50 @@ label[for="modal-switch"] span {
 	}
 	.secondary {
 		width: 300px;
+	}
+}
+
+.header-logo-img {
+	width: 10%;
+	margin-top: 30px;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-container {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	position: relative;
+
+}
+.input-group {
+	margin-bottom: 15px;
+}
+
+.login-button {
+	background-color: #DCECFF;
+	color: #333;
+	cursor: pointer;
+	border: none;
+}
+
+.links {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.header-logo{
+
+	width: 200px;
+	margin-bottom: 10px;
+}
+
+@media (max-width: 1160px) {
+	.header {
+		flex-wrap: wrap;
+		flex-direction: row;
 	}
 }
