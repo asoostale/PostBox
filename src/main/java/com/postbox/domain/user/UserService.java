@@ -9,14 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository userRepository;
-
-    public void joinUser(UserForm form) {
-        User user = new User();
-        user.setUsername(form.getUsername());
-        user.setPassword(form.getPassword());
-        userRepository.save(user);
-    }
 
 
 

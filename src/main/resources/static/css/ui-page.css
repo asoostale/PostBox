@@ -76,7 +76,7 @@ label[for="modal-switch"] span {
 	opacity: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 400px) {
 	.page {
 		display: flex;
 		flex-wrap: wrap;
@@ -93,6 +93,8 @@ label[for="modal-switch"] span {
 	.primary {
 		order: 2;
 		width: 60%;
+		display: flex;
+		justify-content: center;
 	}
 	.secondary {
 		width: 20%;
@@ -115,6 +117,7 @@ label[for="modal-switch"] span {
 		/* flex-grow: 1; */
 		/* flex: 1 1 auto; */
 		/* flex: auto; */
+
 	}
 	.secondary {
 		width: 300px;
@@ -142,10 +145,17 @@ label[for="modal-switch"] span {
 }
 
 .login-button {
+font-size: 20px;
+	width: 200px;
+	margin-top: 10px;
+	margin-left: 100px;
+	height: 30px;
 	background-color: #DCECFF;
-	color: #333;
+	color: #388AFF;
 	cursor: pointer;
-	border: none;
+	border-radius: 10px;
+
+
 }
 
 .links {
@@ -164,4 +174,15 @@ label[for="modal-switch"] span {
 		flex-wrap: wrap;
 		flex-direction: row;
 	}
+}
+
+.input-service {
+	width: 400px;
+	height: 50px;
+	font-size: 1.1em;
+	padding: 1px;
+	margin: 2px;
+	border: 2px solid #D3D3D3;
+	border-radius: 5px;
+
 }

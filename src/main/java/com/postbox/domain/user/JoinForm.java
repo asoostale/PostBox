@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class UserForm {
+public class JoinForm {
 
     private String username;
     private String password;

@@ -15,7 +15,7 @@ import java.util.List;
 import static jakarta.persistence.CascadeType.*;
 
 @Entity
-@Getter @Setter
+@Getter
 public class User {
 
     @Id
@@ -46,6 +46,8 @@ public class User {
     private List<SubReply> subReplies = new ArrayList<>();
     @OneToMany(mappedBy = "user")
     private List<Log> logs = new ArrayList<>();
+
+
 
 
     /**

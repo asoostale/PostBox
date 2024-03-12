@@ -22,4 +22,9 @@ public class TempController {
     public String joinForm() {
         return "/service/join";
     }
+
+    @GetMapping("/mypage")
+    public String mypage() {
+        return "/user/mypage";
+    }
 }
