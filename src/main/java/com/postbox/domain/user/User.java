@@ -5,7 +5,9 @@ import com.postbox.domain.post.Post;
 import com.postbox.domain.post.reply.Reply;
 import com.postbox.domain.post.reply.SubReply;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -13,13 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static jakarta.persistence.CascadeType.*;
+import static jakarta.persistence.GenerationType.*;
+import static lombok.AccessLevel.PROTECTED;
 
 @Entity
 @Getter
+@NoArgsConstructor(access = PROTECTED)
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "user_id")
     private Long id;
     private String username;
@@ -32,8 +37,8 @@ public class User {
 
     /**
      * casecade 삭제한 이유 => casecade = All이 상대 엔터티와 라이프 사이클이 같으면 상관없지만
-     *      * 조금이라도 다른 엔터티와 연관이 되 있따면 사용 X
-     *      ex ) Reply 같은경우 User에도 되있고, Post에도 되 있음.
+     * * 조금이라도 다른 엔터티와 연관이 되 있따면 사용 X
+     * ex ) Reply 같은경우 User에도 되있고, Post에도 되 있음.
      */
 
     @OneToMany(mappedBy = "user")
