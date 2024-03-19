@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TempController {
 
-    @GetMapping("/")
+    @GetMapping("/ui")
     public String mainForm() {
         return "ui/ui-page";
     }

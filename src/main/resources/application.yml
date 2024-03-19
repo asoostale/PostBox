@@ -2,6 +2,11 @@ spring:
   devtools:
     livereload:
       enabled: true
+  security:
+    user:
+      name: test
+      password: 12311
+
   freemarker:
     cache: false
   thymeleaf:
