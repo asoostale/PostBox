@@ -14,11 +14,17 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
+                .requestMatchers("/ui", "/join", "/mypage").authenticated()
                 .requestMatchers("/css/**", "/img/**").permitAll()
-                .requestMatchers("/ui").permitAll()
                 .and().formLogin()
                 .and().httpBasic();
-        return http.build();
+
+
+
+
+
+
+                return http.build();
     }
 
 }
