@@ -12,6 +12,12 @@ public class ApiController {
 
     private final UserRepository userRepository;
 
+
+    @GetMapping("/test")
+    public String testDto() {
+        return "test Dto";
+    }
+
 //    @GetMapping("/api/user")
 //    public String userServiceApi() {
 //        userRepository.findById()

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Flex</title>
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/ui-page.css">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/9eb162ac0d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="page">
+    <!-- header -->
+    <header class="header">
+        <img src="/img/logo.png" alt="" class="header-logo">
+
+        <!-- <div id="modal-switch">⚑</div> -->
+    </header>
+
+    <!-- menu -->
+    <ul class="menu">
+        <li class="menu-item">
+            <a href="#" class="menu-link">추천게시판</a>
+        </li>
+        <li class="menu-item">
+            <a href="#" class="menu-link">자유게시판</a>
+        </li>
+        <li class="menu-item">
+            <a href="#" class="menu-link">질문게시판</a>
+        </li>
+        <li class="menu-item">
+            <a href="#" class="menu-link">공지사항</a>
+        </li>
+    </ul>
+
+    <!-- <div class="content-container"> -->
+    <!-- primary -->
+    <section class="primary">
+        <ul class="board-list">
+            <li class="board-join">
+
+                <h2 class="main-title-board">추천게시판</h2>
+                <div class="board-desc-board">
+                    <ul class="board-list">
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li><br/>
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li>
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li>
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li>
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li>
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li>
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li>
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li>
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li>
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li>
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li>
+                        <li class="board-list-li"><a href="#" class="board-link:visited"><p class="board-title">타이틀 제목을 나타내는 곳 </p></a></li>
+                    </ul>
+                </div>
+            </li>
+            </li>
+        </ul>
+    </section>
+
+    <!-- secondary-a -->
+    <aside class="secondary secondary-a">
+    </aside>
+
+    <!-- secondary-b -->
+    <aside class="secondary secondary-b">
+    </aside>
+    <!-- </div> -->
+
+    <!-- footer -->
+    <footer class="footer">
+        <a href="https://github.com/asoostale">
+    <span>
+        github.com/asoostale
+        <i class="fab fa-github"></i>
+    </span><br/>
+            <p><a href="mailto:asoostale@naver.com">asoostale@naver.com</a></p>
+            <p><a href="tel:01030619579">TEl : 010-3061-9579</a></p>
+        </a>
+    </footer>
+</div>
+
+<input type="checkbox" id="modal-switch">
+<label for="modal-switch">
+    <span>modal 열고 닫기</span>
+</label>
+
+<div class="modal">
+    <div class="login-container">
+        <header>
+            <a href="http://localhost:8080" style="border: 0px"><img src="/img/logo.png" class="logo"/></a>
+        </header>
+        <section class="login-form">
+            <form action="#" method="post">
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder="아이디를 입력해주세요 :)" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required>
+                </div>
+                <div class="input-group">
+                    <input type="checkbox" id="remember-me" name="remember-me">
+                    <!--타임리프 가성라벨 추가할 것. boolean  true false 스프링2편 타임리프 체크박스 확인 -->
+                    <label for="remember-me">자동로그인</label>
+
+                </div>
+                <button type="submit" class="login-button">로그인</button>
+
+                <div class="links">
+                    <a href="#">회원가입</a><br/>
+                    <a href="#">계정 찾기</a>
+                    <a href="#">비밀번호 찾기</a>
+
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+<script>
+    const password = document.querySelector('.input-service[type="password"]');
+    const confirmPassword = document.querySelector('.input-service[type="password"]:nth-last-of-type(2)');
+
+    const checkPasswords = () => {
+        if (password.value === confirmPassword.value) {
+            // 일치할 때 테두리 검은색, 글자색 검은색 설정
+            password.style.border = '2px solid #02C75A';
+            password.style.color = 'black'; // 글자색 설정 추가
+            confirmPassword.style.border = '2px solid #02C75A'; // 초록색 테두리
+            confirmPassword.style.color = 'black'; // 글자색 설정 추가
+        } else {
+            // 불일치할 때 테두리 빨간색, 글자색 검은색 설정
+            password.style.border = '2px solid #AF1D1B'; // 빨간색 테두리 (색상 코드 수정)
+            password.style.color = 'black'; // 글자색 설정 추가
+            confirmPassword.style.border = '2px solid #AF1D1B'; // 빨간색 테두리
+            confirmPassword.style.color = 'black'; // 글자색 설정 추가
+        }
+    };
+
+    // 입력할 때마다 checkPasswords 함수 실행
+    password.addEventListener('input', checkPasswords);
+    confirmPassword.addEventListener('input', checkPasswords);
+</script>
+
+</body>
+</html>

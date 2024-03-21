@@ -1,6 +1,7 @@
-body{
+body {
     box-sizing: border-box;
 }
+
 
 /* menu */
 .menu {
@@ -35,21 +36,22 @@ body{
 }
 
 @media (max-width: 500px) {
-	.menu {
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
+    .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
     .header-logo {
         width: 130px;
         margin-bottom: 10px;
     }
 }
-	 .menu-item {
-		 flex: 1 1 100%;
-		 border-bottom: 1px solid black;
 
-	 }
+.menu-item {
+    flex: 1 1 100%;
+    border-bottom: 1px solid black;
 
+}
 
 
 /* search */
@@ -161,7 +163,17 @@ body{
     padding: 1em;
     background: white;
 }
-join{
+
+.board-desc-board {
+    display: block;
+    flex: 1 1 auto;
+    padding: 1em;
+    background: white;
+    margin-top: 15px;
+    width: 900px;
+}
+
+join {
 
 }
 
@@ -187,6 +199,7 @@ join{
         margin: 0 -1rem;
 
     }
+
     .board-item {
         width: 50%;
     }
@@ -200,8 +213,65 @@ join{
 
 }
 
-.main-title{
+.main-title {
     color: #388AFF;
     justify-content: center;
     display: flex;
+}
+
+.main-title-board {
+    color: #2D4261;
+    justify-content: left;
+    display: flex;
+}
+
+/*게시판 관련*/
+.board-title {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.board-link {
+    text-decoration: none;
+}
+
+.board-link:visited {
+    text-decoration: none;
+}
+
+.board-list {
+    margin: 0;
+    padding: 0;
+}
+.board-list-li {
+    list-style-type: none;
+    padding: 10px;
+    position: relative;
+    border-bottom: 1px solid #ededed;
+    display: block;
+}
+.board-write-input{
+    border: 1px solid #D7D7D7;
+    width: 700px;
+    margin-left: 14px;
+    height: 25px;
+}
+.board-write-textarea{
+    border: 1px solid #D7D7D7;
+    width: 700px;
+    height: 1000px;
+    margin: 15px;
+}
+
+.board-write-button {
+    background-color: #DDEBFF;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-left: 14px;
+}
+
+.board-write-select {
+    border: 1px solid #D7D7D7;
+    margin-left: 14px;
+    margin-bottom: 15px;
 }

@@ -27,4 +27,16 @@ public class TempController {
     public String mypage() {
         return "/user/mypage";
     }
+
+    @GetMapping("/f-board")
+    public String boardFeatured(){
+        return "/post/featured-board";
+    }
+
+    //글 작성폼
+    @GetMapping("/dopost")
+    public String doPostForm() {
+        return "/post/detail/post-write";
+    }
+
 }
