@@ -19,7 +19,7 @@ import static jakarta.persistence.GenerationType.*;
 import static lombok.AccessLevel.PROTECTED;
 
 @Entity
-@Getter
+@Getter @Setter
 @NoArgsConstructor(access = PROTECTED)
 public class User {
 
@@ -29,6 +29,7 @@ public class User {
     private Long id;
     private String username;
     private String password;
+    private String role;
 
     private String email;
 

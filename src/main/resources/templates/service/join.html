@@ -44,13 +44,13 @@
                 <img src="/img/logo.png" alt="폼 로고" style="width: 150px"; height="100px" >
                 <h2 class="main-title">회원가입</h2>
                 <div class="board-desc join">
-                    <form action="/join" method="post"></form>
-                    <input class="input-service" type="text" placeholder="아이디"><br>
-                    <input class="input-service" type="password" placeholder="비밀번호"><br>
+                    <form action="/joinProc" method="post" th:object="${userForm}">
+                    <input class="input-service" name="username" type="text" placeholder="아이디" th:field="*{username}"><br>
+                    <input class="input-service" type="password" placeholder="비밀번호" th:field="*{password}"><br>
                     <input class="input-service" type="password" placeholder="비밀번호 확인"><br>
-                    <input class="input-service" type="text" placeholder="[선택]이메일"><br>
+                    <input class="input-service" type="text" placeholder="[선택]이메일" th:field="*{email}"><br>
                     <button type="submit" class="login-button">인증요청</button>
-
+                    </form>
 
                 </div>
             </li>

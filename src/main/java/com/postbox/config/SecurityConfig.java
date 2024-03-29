@@ -4,21 +4,39 @@ package com.postbox.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
-    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests()
-                .anyRequest().permitAll()
-                .and().formLogin()
-                .disable().httpBasic();
+    public SecurityFilterChain chain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests((auth) -> auth
+                .requestMatchers("/css/**","/img/**","/", "/login", "/join", "/joinProc", "/ui").permitAll()
+                .anyRequest().authenticated());
 
-                return http.build();
+        http.formLogin((auth) -> auth
+                .loginPage("/login")
+                .loginProcessingUrl("/loginProc")
+                .permitAll());
+        return http.build();
     }
+
+
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+
+
+
+
+
 
 }
