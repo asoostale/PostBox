@@ -40,15 +40,17 @@
     <section class="primary">
         <ul class="board-list">
             <li class="board-join">
-                <img src="/img/logo.png" alt="폼 로고" style="width: 150px"; height="100px" >
+                <img src="/img/logo.png" alt="폼 로고" style="width: 150px" ; height="100px">
                 <h2 class="main-title">회원가입</h2>
                 <div class="board-desc join">
                     <form action="/joinProc" method="post" th:object="${joinForm}">
-                    <input class="input-service" name="username" type="text" placeholder="아이디" th:field="*{username}"><br>
-                    <input class="input-service" type="password" placeholder="비밀번호" th:field="*{password}"><br>
-                    <input class="input-service" type="password" placeholder="비밀번호 확인"><br>
-                    <input class="input-service" type="text" placeholder="[선택]이메일" th:field="*{email}"><br>
-                    <button type="submit" class="login-button">인증요청</button>
+                        <input class="input-service" name="username" type="text" placeholder="아이디"
+                               th:field="*{username}"><br>
+                        <input class="input-service" type="password" placeholder="비밀번호" th:field="*{password}"><br>
+                        <input class="input-service" type="password" placeholder="비밀번호 확인"><br>
+                        <input class="input-service" type="text" placeholder="[선택]이메일" th:field="*{email}"><br>
+                        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                        <button type="submit" class="login-button">인증요청</button>
                     </form>
                 </div>
             </li>
@@ -89,28 +91,28 @@
             <a href="http://localhost:8080" style="border: 0px"><img src="/img/logo.png" class="logo"/></a>
         </header>
         <section class="login-form">
-<!--            <form action="#" method="post">-->
-<!--                <div class="input-group">-->
-<!--                    <input type="email" id="email" name="email" placeholder="아이디를 입력해주세요 :)" required>-->
-<!--                </div>-->
-<!--                <div class="input-group">-->
-<!--                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required>-->
-<!--                </div>-->
-<!--                <div class="input-group">-->
-<!--                    <input type="checkbox" id="remember-me" name="remember-me">-->
-<!--                    &lt;!&ndash;타임리프 가성라벨 추가할 것. boolean  true false 스프링2편 타임리프 체크박스 확인 &ndash;&gt;-->
-<!--                    <label for="remember-me">자동로그인</label>-->
+            <!--            <form action="#" method="post">-->
+            <!--                <div class="input-group">-->
+            <!--                    <input type="email" id="email" name="email" placeholder="아이디를 입력해주세요 :)" required>-->
+            <!--                </div>-->
+            <!--                <div class="input-group">-->
+            <!--                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required>-->
+            <!--                </div>-->
+            <!--                <div class="input-group">-->
+            <!--                    <input type="checkbox" id="remember-me" name="remember-me">-->
+            <!--                    &lt;!&ndash;타임리프 가성라벨 추가할 것. boolean  true false 스프링2편 타임리프 체크박스 확인 &ndash;&gt;-->
+            <!--                    <label for="remember-me">자동로그인</label>-->
 
-<!--                </div>-->
-<!--                <button type="submit" class="login-button">로그인</button>-->
+            <!--                </div>-->
+            <!--                <button type="submit" class="login-button">로그인</button>-->
 
-<!--                <div class="links">-->
-<!--                    <a href="#">회원가입</a><br/>-->
-<!--                    <a href="#">계정 찾기</a>-->
-<!--                    <a href="#">비밀번호 찾기</a>-->
+            <!--                <div class="links">-->
+            <!--                    <a href="#">회원가입</a><br/>-->
+            <!--                    <a href="#">계정 찾기</a>-->
+            <!--                    <a href="#">비밀번호 찾기</a>-->
 
-<!--                </div>-->
-<!--            </form>-->
+            <!--                </div>-->
+            <!--            </form>-->
         </section>
     </div>
 </div>

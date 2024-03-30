@@ -25,7 +25,22 @@ public class SecurityConfig {
                 .loginProcessingUrl("/loginProc")
                 .permitAll());
 
-        http.csrf((auth) -> auth.disable());
+
+        //session 보안 강화
+        http.sessionManagement(auth -> auth
+                .sessionFixation().changeSessionId());
+
+
+        //다중 로그인 최대 2개
+        http.sessionManagement((auth) -> auth
+                .maximumSessions(1)
+                .maxSessionsPreventsLogin(true));
+
+
+        http.logout((auth) -> auth.logoutUrl("/logout")
+                .logoutSuccessUrl("/"));
+
+
         return http.build();
     }
 

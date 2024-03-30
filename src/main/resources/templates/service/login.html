@@ -12,7 +12,7 @@
         <a href="http://localhost:8080" style="border: 0px" ><img src="/img/logo.png" style="width: 100px"/></a>
     </header>
     <section class="login-form">
-        <form action="/loginProc" method="post">
+        <form th:action="@{/loginProc}" method="post">
             <div class="input-group">
                 <input type="email" id="email" name="email" placeholder="아이디를 입력해주세요 :)" required>
             </div>
@@ -25,6 +25,7 @@
                 <label for="remember-me">자동로그인</label>
 
             </div>
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}">
             <button type="submit" class="login-button">로그인</button>
 
             <div class="links">
