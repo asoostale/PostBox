@@ -11,23 +11,17 @@ public class JoinService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-
-
-
+    @Transactional
     public void save(JoinForm joinForm) {
+        boolean isUser = userRepository.existsByUsername(joinForm.getUsername());
+        if (isUser) {
+            return;
+        }
+
         User user = new User();
         user.setUsername(joinForm.getUsername());
         user.setPassword(passwordEncoder.encode(joinForm.getPassword()));
-        user.setRole("ROLE_USER");
+        user.setRole("ROLE_ADMIN");
         userRepository.save(user);
     }
-
-
-//    public List<User> findUserById(User);
-
-
-
-
-
-
 }

@@ -17,13 +17,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain chain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((auth) -> auth
-                .requestMatchers("/css/**","/img/**","/", "/login", "/join", "/joinProc", "/ui").permitAll()
+                .requestMatchers("/css/**","/img/**", "/", "/join", "/joinProc", "/ui").permitAll()
                 .anyRequest().authenticated());
 
         http.formLogin((auth) -> auth
                 .loginPage("/login")
                 .loginProcessingUrl("/loginProc")
                 .permitAll());
+
+        http.csrf((auth) -> auth.disable());
         return http.build();
     }
 
