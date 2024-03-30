@@ -1,13 +1,14 @@
-package com.postbox.web;
+package com.postbox;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class TempController {
+public class WelcomeController {
+
 
     @GetMapping("/")
-    public String welcomePage() {
+    public String home() {
         return "ui/ui-page";
     }
 }

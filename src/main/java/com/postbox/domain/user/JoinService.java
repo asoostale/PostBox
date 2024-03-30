@@ -23,7 +23,7 @@ public class JoinService {
         User user = new User();
         user.setUsername(joinForm.getUsername());
         user.setPassword(passwordEncoder.encode(joinForm.getPassword()));
-        user.setRole("ROLE_ADMIN");
+        user.setRole("ROLE_USER");
         userRepository.save(user);
     }
 }

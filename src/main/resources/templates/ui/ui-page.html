@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,12 @@
     <header class="header">
         <img src="/img/logo.png" alt="" class="header-logo">
 
-        <!-- <div id="modal-switch">⚑</div> -->
+        <div sec:authorize="isAuthenticated()">
+            <a href="/logout" th:href="@{/logout}">로그아웃</a>
+        </div>
+        <div sec:authorize="!isAuthenticated()">
+            <a href="/login" th:href="@{/login}">로그인</a>
+        </div>
     </header>
 
     <!-- menu -->
@@ -127,40 +132,8 @@
 </div>
 
 <input type="checkbox" id="modal-switch">
-<label for="modal-switch">
-    <span>modal 열고 닫기</span>
-</label>
 
-<div class="modal">
-    <div class="login-container">
-        <header>
-            <a href="http://localhost:8080" style="border: 0px"><img src="/img/logo.png" class="logo"/></a>
-        </header>
-        <section class="login-form">
-            <form action="#" method="post">
-                <div class="input-group">
-                    <input type="email" id="email" name="email" placeholder="아이디를 입력해주세요 :)" required>
-                </div>
-                <div class="input-group">
-                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required>
-                </div>
-                <div class="input-group">
-                    <input type="checkbox" id="remember-me" name="remember-me">
-                    <!--타임리프 가성라벨 추가할 것. boolean  true false 스프링2편 타임리프 체크박스 확인 -->
-                    <label for="remember-me">자동로그인</label>
 
-                </div>
-                <button type="submit" class="login-button">로그인</button>
 
-                <div class="links">
-                    <a href="#">회원가입</a>
-                    <a href="#">계정 찾기</a>
-                    <a href="#">비밀번호 찾기</a>
-
-                </div>
-            </form>
-        </section>
-    </div>
-</div>
 </body>
 </html>
