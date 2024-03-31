@@ -13,7 +13,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
@@ -27,4 +27,10 @@ spring:
 
 logging.level:
   org.hibernate.SQL: debug
+
+  #세션 타임아웃
+server:
+  servlet:
+    session:
+      timeout: 90m
 #  org.hibernate.type: trace

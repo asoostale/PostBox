@@ -7,13 +7,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class JoinService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
 
-    @Transactional
+    @Transactional(readOnly = false)
     public void save(JoinForm joinForm) {
         boolean isUser = userRepository.existsByUsername(joinForm.getUsername());
         if (isUser) {

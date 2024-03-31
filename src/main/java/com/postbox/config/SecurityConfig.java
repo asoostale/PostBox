@@ -1,10 +1,12 @@
 package com.postbox.config;
 
 
+import org.springframework.boot.autoconfigure.security.reactive.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -18,13 +20,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain chain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((auth) -> auth
-                .requestMatchers("/css/**","/img/**", "/", "/join", "/joinProc", "/ui").permitAll()
+                .requestMatchers("/css/**","/img/**", "/", "/join", "/joinProc", "/ui","/board1","/board-write","/favicon.ico", "/resources/**", "/error").permitAll()
                 .anyRequest().authenticated());
 
         http.formLogin((auth) -> auth
                 .loginPage("/login")
                 .loginProcessingUrl("/loginProc")
-                .successForwardUrl("/")
+
+                .defaultSuccessUrl("/")
                 .permitAll());
 
 

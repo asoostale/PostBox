@@ -132,12 +132,14 @@ label[for="modal-switch"] span {
 }
 
 .login-container {
+	display: flex;
 	max-width: 400px;
 	margin: 0 auto;
 	padding: 20px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	background-color: #fff;
+	background-color: white;
 	position: relative;
+
 
 }
 .input-group {
@@ -185,4 +187,9 @@ font-size: 20px;
 	border: 2px solid #D3D3D3;
 	border-radius: 5px;
 
+}
+
+.login-form {
+	width: 400px;
+	height: 200px;
 }
