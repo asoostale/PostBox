@@ -28,16 +28,16 @@
     <!-- menu -->
     <ul class="menu">
         <li class="menu-item">
-            <a href="#" class="menu-link">추천게시판</a>
+            <a th:href="@{/board-featured}" class="menu-link">추천게시판</a>
         </li>
         <li class="menu-item">
-            <a th:href="@{/board1}" class="menu-link">자유게시판</a>
+            <a th:href="@{/board-free}" class="menu-link">자유게시판</a>
         </li>
         <li class="menu-item">
-            <a href="#" class="menu-link">질문게시판</a>
+            <a th:href="@{/board-quest}" class="menu-link">질문게시판</a>
         </li>
         <li class="menu-item">
-            <a href="#" class="menu-link">공지사항</a>
+            <a th:href="@{/board-announce}" class="menu-link">공지사항</a>
         </li>
     </ul>
 
@@ -64,16 +64,13 @@
 
                 <h2>자유게시판</h2>
                 <div class="board-desc">
-                    <p>안녕하세요.1</p>
-                    <p>안녕하세요.2</p>
-                    <p>안녕하세요.3</p>
-                    <p>안녕하세요.4</p>
-                    <p>안녕하세요.5</p>
-                    <p>안녕하세요.6</p>
-                    <p>안녕하세요.7</p>
-                    <p>안녕하세요.8</p>
-                    <p>안녕하세요.9</p>
-                    <p>안녕하세요.10</p>
+                    <ul class="board-list" th:each="post : ${posts}">
+                        <li class="board-list-li">
+                            <a href="#" class="board-link:visited">
+                                <p class="board-title" th:text="${post.title}">제목</p>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </li>
             <li class="board-item">
@@ -132,7 +129,6 @@
 </div>
 
 <input type="checkbox" id="modal-switch">
-
 
 
 </body>
