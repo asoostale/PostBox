@@ -8,6 +8,6 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, Long> {
 
 
-    @Query("select p from Post p")
+    @Query("select p from Post p ORDER BY p.id desc")
     List<Post> findAll();
 }

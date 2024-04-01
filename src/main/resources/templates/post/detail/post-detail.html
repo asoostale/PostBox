@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,16 +40,9 @@
         <ul class="board-list">
             <li class="board-join">
 
-                <h2 class="main-title-board">자유게시판</h2>
-                <a th:href="@{/board-write}" class="button-write">글쓰기</a>
+                <h2 class="main-title-board" th:text="${post.getTitle()}">제목 부분</h2>
                 <div class="board-desc-board">
-                    <ul class="board-list" th:each="post : ${posts}">
-                        <li class="board-list-li">
-                            <a th:href="@{/post/{id}(id=${post.id})}" class="board-link:visited">
-                                <p class="board-title" th:text="${post.title}">타이틀 제목을 나타내는 곳</p>
-                            </a>
-                        </li><br/>
-                    </ul>
+                    <p th:text="${post.getContent()}">내용 부용부문</p>
                 </div>
 
             </li>

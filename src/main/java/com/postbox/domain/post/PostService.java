@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,9 +35,16 @@ public class PostService {
 
     public List<PostDto> findAllPost() {
         return postRepository.findAll().stream()
-                .map(p -> new PostDto(p.getTitle(), p.getContents(), p.getWriteAt()))
+                .map(p -> new PostDto(p.getId(),p.getTitle(), p.getContents(), p.getWriteAt()))
                 .collect(Collectors.toList());
     }
 
+
+    public PostDto findById(Long id) {
+
+        Post post = postRepository.findById(id).get();
+        PostDto postDto = new PostDto(post.getId(),post.getTitle(), post.getContents(), post.getWriteAt());
+        return postDto;
+    }
 
 }

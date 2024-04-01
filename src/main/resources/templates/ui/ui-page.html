@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:board-link="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,7 +67,7 @@
                 <div class="board-desc">
                     <ul class="board-list" th:each="post : ${posts}">
                         <li class="board-list-li">
-                            <a href="#" class="board-link:visited">
+                            <a th:href="@{/post/{id}(id=${post.id})}" class="board-link:visited">
                                 <p class="board-title" th:text="${post.title}">제목</p>
                             </a>
                         </li>
