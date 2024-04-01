@@ -4,36 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POSTBOX</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/ui-page.css">
+    <style>
+        html {
+            background-color: white;
+        }
+        body {
+            background-color: white;
+        }
+    </style>
 </head>
 <body>
 <div class="login-container">
-    <header>
-        <a th:href="@{/}" style="border: 0px" ><img src="/img/logo.png" style="width: 300px"/></a>
-    </header>
-    <section class="login-form">
-        <form th:action="@{/loginProc}" method="post" name="loginForm">
-            <div class="input-group">
-                <input type="text" id="id" name="username" placeholder="아이디를 입력해주세요." required >
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required>
-            </div>
-            <div class="input-group">
-                <input type="checkbox" id="remember-me" name="remember-me">
-                <!--타임리프 가성라벨 추가할 것. boolean  true false 스프링2편 타임리프 체크박스 확인 -->
-                <label for="remember-me">자동로그인</label>
-            </div>
-            <input type="hidden" name="_csrf" th:value="${_csrf.token}">
-            <button type="submit" class="login-button" >로그인</button>
+    <div class="login-form">
 
-            <div class="links">
-                <a th:href="@{/join}">회원가입</a><br/>
-                <a href="#">계정 찾기</a>
-                <a href="#">비밀번호 찾기</a>
-            </div>
-        </form>
-    </section>
+        <section>
+            <img th:src="@{img/logo.png}" alt="로고" class="login-logo" >
+            <form th:action="@{/loginProc}" method="post" name="loginForm">
+                <div class="input-group">
+                    <input type="text" id="id" name="username" placeholder="아이디를 입력해주세요." required class="login-input">
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required class="login-input">
+                </div>
+                <div class="input-group">
+                    <input type="checkbox" id="remember-me" name="remember-me">
+                    <!--타임리프 가성라벨 추가할 것. boolean  true false 스프링2편 타임리프 체크박스 확인 -->
+                    <label for="remember-me">자동로그인</label>
+                </div>
+                <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                <button type="submit" class="login-button" >로그인</button>
+
+                <div class="links">
+                    <a th:href="@{/join}">회원가입</a><br/>
+                </div>
+            </form>
+        </section>
+    </div>
 </div>
+
+
 </body>
 </html>
