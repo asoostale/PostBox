@@ -1,205 +1,265 @@
-.header	{
-	display: flex;
-	align-items: center;
-	 justify-content: space-between;
-	height: 80px;
-	padding: 0;
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0;
 }
+
 /* .header에 justify-content: space-between; 대신 사용 가능 */
 .search-form {
-	width: 400px;
-/*justify-content: center;*/
-	margin-right: 45rem;
-		display: flex;
-		height: 45px;
+    width: 400px;
+    /*justify-content: center;*/
+    margin-right: 45rem;
+    display: flex;
+    height: 45px;
 
 }
+
 .primary {
-	padding: 1rem;
+    padding: 1rem;
 }
+
 .secondary {
-	padding: 1rem;
+    padding: 1rem;
 }
+
 .secondary-a {
-	background: #EEEEEE;
+    background: #EEEEEE;
 }
+
 .secondary-b {
-	background: #EEEEEE;
+    background: #EEEEEE;
 }
+
 .footer {
-	padding: 1rem;
-	border-top: 1px solid lightgray;
-	text-align: center;
+    padding: 1rem;
+    border-top: 1px solid lightgray;
+    text-align: center;
 }
+
 .modal {
-	display: none;
-	/*top: 80px;*/
+    display: none;
+    /*top: 80px;*/
 }
+
 #modal-switch:checked ~ .modal {
-	display: flex;
+    display: flex;
 }
+
 label[for="modal-switch"] {
-	display: flex;
-	border: 1px solid #acacf3;
+    display: flex;
+    border: 1px solid #acacf3;
 
-	/*margin-right: 250px;*/
-	border-radius: 5px;
-	background: #DDEBFF;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	top: 0.5rem;
-	right: 1rem;
-	 z-index: 100;
-	width: 60px;
-	height: 60px;
-	cursor: pointer;
-	/* background: red; */
+    /*margin-right: 250px;*/
+    border-radius: 5px;
+    background: #DDEBFF;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    z-index: 100;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    /* background: red; */
 }
+
 label[for="modal-switch"]:before {
-	content: "로그인";
+    content: "로그인";
 
-	border-radius: 10px;
-	font-size: 1.3rem;
-	cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
 }
+
 #modal-switch:checked ~ label[for="modal-switch"]:before {
-	color: dodgerblue;
+    color: dodgerblue;
 }
+
 #modal-switch,
 label[for="modal-switch"] span {
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	width: 1px;
-	height: 1px;
-	opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
 }
 
 @media (min-width: 400px) {
-	.page {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.header {
-		width: 100%;
-	}
-	.header p{
-		margin-left: auto;
-	}
-	.menu {
-		width: 100%;
-	}
-	.primary {
-		order: 2;
-		width: 60%;
-		display: flex;
-		justify-content: center;
-	}
-	.secondary {
-		width: 20%;
-	}
-	.secondary-a {
-		order: 1;
-	}
-	.secondary-b {
-		order: 3;
-	}
-	.footer {
-		order: 4;
-		width: 100%;
-	}
+    .page {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .header p {
+        margin-left: auto;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .primary {
+        order: 2;
+        width: 60%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .secondary {
+        width: 20%;
+    }
+
+    .secondary-a {
+        order: 1;
+    }
+
+    .secondary-b {
+        order: 3;
+    }
+
+    .footer {
+        order: 4;
+        width: 100%;
+    }
 }
 
 @media (min-width: 1400px) {
-	.primary {
-		width: calc(100% - 600px);
-		/* flex-grow: 1; */
-		/* flex: 1 1 auto; */
-		/* flex: auto; */
+    .primary {
+        width: calc(100% - 600px);
+        /* flex-grow: 1; */
+        /* flex: 1 1 auto; */
+        /* flex: auto; */
 
-	}
-	.secondary {
-		width: 300px;
-	}
+    }
+
+    .secondary {
+        width: 300px;
+    }
 }
 
 .header-logo-img {
-	width: 10%;
-	margin-top: 30px;
-	justify-content: center;
-	align-items: center;
+    width: 10%;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-container {
-	display: inline-flex;
-	max-width: 580px;
-	height: 680px;
-	/*margin: 0 auto;*/
-	padding: 20px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	background-color: white;
-	position: relative;
-	justify-content: center;
-	align-items: center;
-	margin-left: 680px;
+    display: inline-flex;
+    max-width: 580px;
+    height: 680px;
+    /*margin: 0 auto;*/
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-left: 680px;
 }
+
 .login-input {
-	width: 400px;
-	height: 45px;
+    width: 400px;
+    height: 45px;
 }
 
 .input-group {
-	margin-bottom: 15px;
+    margin-bottom: 15px;
 }
+
 .login-form {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-button {
-font-size: 20px;
-	width: 200px;
-	height: 30px;
-	background-color: #DCECFF;
-	color: #388AFF;
-	cursor: pointer;
-	border-radius: 10px;
-	margin-left: 90px;
+    font-size: 20px;
+    width: 200px;
+    height: 30px;
+    background-color: #DCECFF;
+    color: #388AFF;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: 90px;
 }
+
 .login-logo {
-	width: 400px;
-	padding: 50px;
+    width: 400px;
+    padding: 50px;
 
 }
 
 .links {
-	text-align: center;
-	margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.header-logo{
+.header-logo {
 
-	width: 200px;
-	margin-bottom: 10px;
+    width: 200px;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 1160px) {
-	.header {
-		flex-wrap: wrap;
-		flex-direction: row;
-	}
+    .header {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
 }
 
 .input-service {
-	width: 400px;
-	height: 50px;
-	font-size: 1.1em;
-	padding: 1px;
-	margin: 2px;
-	border: 2px solid #D3D3D3;
-	border-radius: 5px;
+    width: 400px;
+    height: 50px;
+    font-size: 1.1em;
+    padding: 1px;
+    margin: 2px;
+    border: 2px solid #D3D3D3;
+    border-radius: 5px;
+}
+.post-detail {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    width: 100%;
+    height: 900px;
+    background-color: white;
+}
+.post-detail-title {
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #2D4261;
+}
+.post-detail-category-box {
+
+}
+.post-detail-writer {
+
+    font-size: 13px;
+    color: #5A5D5F;
+background-color: #F1F7FF;
 }
 
+.post-detail-content {
+    padding: 20px;
+}
+.post-detail-category {
+    font-weight: bold;
+    color: #2D4261;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 20px;
+
+}
 

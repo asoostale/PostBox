@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:board-link="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSS Flex</title>
-    <link rel="stylesheet" href="css/default.css">
-    <link rel="stylesheet" href="css/ui.css">
-    <link rel="stylesheet" href="css/ui-page.css">
+    <link rel="stylesheet" th:href="@{/css/default.css}">
+    <link rel="stylesheet" th:href="@{/css/ui.css}">
+    <link rel="stylesheet" th:href="@{/css/ui-page.css}">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/9eb162ac0d.js" crossorigin="anonymous"></script>
 </head>
@@ -16,6 +17,13 @@
     <!-- header -->
     <header class="header">
         <img src="/img/logo.png" alt="" class="header-logo">
+
+        <div sec:authorize="isAuthenticated()">
+            <a href="/logout" th:href="@{/logout}">로그아웃</a>
+        </div>
+        <div sec:authorize="!isAuthenticated()">
+            <a href="/login" th:href="@{/login}">로그인</a>
+        </div>
     </header>
 
     <!-- menu -->
@@ -37,17 +45,30 @@
     <!-- <div class="content-container"> -->
     <!-- primary -->
     <section class="primary">
-        <ul class="board-list">
-            <li class="board-join">
+        <div class="post-detail">
+            <div class="post-detail-category-box">
 
-                <h2 class="main-title-board" th:text="${post.getTitle()}">제목 부분</h2>
-                <div class="board-desc-board">
-                    <p th:text="${post.getContent()}">내용 부용부문</p>
+                <a link rel="stylesheet"  class="post-detail-category" th:href="@{/board-free}">
+                자유게시판</a>
+            </div>
+            <div>
+                <div class="post-detail-title" th:text="${post.title}">제목</div>
+                <div>
+                    <div class="post-detail-writer">
+                    <p th:text="${post.getId()}">작성자</p>
+                    작성일시 : <p th:text="${#temporals.format(post.writeAt, 'yyyy-mm-dd HH:mm')}">작성 일시</p>
+                    </div>
+                    <p class="post-detail-content" th:text="${post.getContent()}">내용</p>
                 </div>
-
-            </li>
-            </li>
-        </ul>
+<!--                <div>-->
+<!--                    <div>~개의 댓글</div>-->
+<!--                    <div>-->
+<!--                        <p>작성자</p>-->
+<!--                        <p>내용</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+        </div>
     </section>
 
     <!-- secondary-a -->
@@ -73,35 +94,7 @@
 </div>
 
 <input type="checkbox" id="modal-switch">
-<label for="modal-switch">
-    <span>modal 열고 닫기</span>
-</label>
 
-
-<script>
-    const password = document.querySelector('.input-service[type="password"]');
-    const confirmPassword = document.querySelector('.input-service[type="password"]:nth-last-of-type(2)');
-
-    const checkPasswords = () => {
-        if (password.value === confirmPassword.value) {
-            // 일치할 때 테두리 검은색, 글자색 검은색 설정
-            password.style.border = '2px solid #02C75A';
-            password.style.color = 'black'; // 글자색 설정 추가
-            confirmPassword.style.border = '2px solid #02C75A'; // 초록색 테두리
-            confirmPassword.style.color = 'black'; // 글자색 설정 추가
-        } else {
-            // 불일치할 때 테두리 빨간색, 글자색 검은색 설정
-            password.style.border = '2px solid #AF1D1B'; // 빨간색 테두리 (색상 코드 수정)
-            password.style.color = 'black'; // 글자색 설정 추가
-            confirmPassword.style.border = '2px solid #AF1D1B'; // 빨간색 테두리
-            confirmPassword.style.color = 'black'; // 글자색 설정 추가
-        }
-    };
-
-    // 입력할 때마다 checkPasswords 함수 실행
-    password.addEventListener('input', checkPasswords);
-    confirmPassword.addEventListener('input', checkPasswords);
-</script>
 
 </body>
 </html>
