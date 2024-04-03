@@ -67,16 +67,10 @@
                     </form>
 
                     <div class="post-detail-reply">댓글 92개</div>
-                    <div class="reply-form">
-                        <p>작성자</p>
-                        <p>내용</p>
+                    <div class="reply-form" th:each="reply : ${replies}">
+                        <p th:text="${reply.getUser().getUsername()}">작성자</p>
+                        <p th:text="${reply.contents}">내용</p>
                     </div>
-
-
-                    <!--                    <div>-->
-                    <!--                        <div th:text=""> 작성자</div>-->
-                    <!--                        <div th:text=""> 댓글 내용</div>-->
-                    <!--                    </div>-->
                 </div>
             </div>
         </div>

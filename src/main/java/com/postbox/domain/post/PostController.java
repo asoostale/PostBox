@@ -1,6 +1,8 @@
 package com.postbox.domain.post;
 
+import com.postbox.domain.post.reply.Reply;
 import com.postbox.domain.post.reply.ReplyForm;
+import com.postbox.domain.post.reply.ReplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +19,7 @@ import java.util.List;
 public class PostController {
 
     private final PostService postService;
+    private final ReplyService replyService;
 
 
     @GetMapping("/board-free")
@@ -66,6 +69,8 @@ public class PostController {
     @GetMapping("/post/{id}")
     public String postDetailPage(Model model, @PathVariable("id") Long id) {
         PostDto findPost = postService.findById(id);
+        List<Reply> replies = replyService.allComments();
+        model.addAttribute("replies", replies);
         model.addAttribute("post", findPost);
         model.addAttribute("replyForm", new ReplyForm());
         return "/post/detail/post-detail";

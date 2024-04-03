@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -34,6 +36,14 @@ public class ReplyService {
         reply.setPost(findPost);
 
         replyRepository.save(reply);
+    }
+
+    public List<Reply> allComments() {
+        List<Reply> allReplies = replyRepository.findAll();
+        allReplies.stream()
+                .map(r -> new ReplyDto(r.getContents(), r.getWriteAt(), r.getUser().getUsername()))
+                .collect(Collectors.toList());
+        return allReplies;
     }
 
 }
