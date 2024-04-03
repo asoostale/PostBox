@@ -43,7 +43,7 @@ public class PostService {
     public PostDto findById(Long id) {
 
         Post post = postRepository.findById(id).get();
-        PostDto postDto = new PostDto(post.getId(),post.getTitle(), post.getContents(), post.getWriteAt());
+        PostDto postDto = new PostDto(post.getId(),post.getTitle(), post.getContents(), post.getWriteAt(), post.getUser().getUsername());
         return postDto;
     }
 

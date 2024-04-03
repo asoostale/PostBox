@@ -48,25 +48,36 @@
         <div class="post-detail">
             <div class="post-detail-category-box">
 
-                <a link rel="stylesheet"  class="post-detail-category" th:href="@{/board-free}">
-                자유게시판</a>
+                <a link rel="stylesheet" class="post-detail-category" th:href="@{/board-free}">
+                    자유게시판</a>
             </div>
             <div>
                 <div class="post-detail-title" th:text="${post.title}">제목</div>
                 <div>
                     <div class="post-detail-writer">
-                    <p th:text="${post.getId()}">작성자</p>
-                    작성일시 : <p th:text="${#temporals.format(post.writeAt, 'yyyy-mm-dd HH:mm')}">작성 일시</p>
+                        작성자 : <p th:text="${post.username}">작성자</p>
+                        작성일시 : <p th:text="${#temporals.format(post.writeAt, 'yyyy-mm-dd HH:mm')}">작성 일시</p>
                     </div>
                     <p class="post-detail-content" th:text="${post.getContent()}">내용</p>
+
+                    <form th:action="@{/post/{id}/reply(id=${post.id})}" method="post" th:object="${replyForm}">
+                        <input type="text" th:field="*{contents}" placeholder="댓글 달기.." class="reply-input">
+                        <button type="submit" class="reply-submit">게시</button>
+                        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+                    </form>
+
+                    <div class="post-detail-reply">댓글 92개</div>
+                    <div class="reply-form">
+                        <p>작성자</p>
+                        <p>내용</p>
+                    </div>
+
+
+                    <!--                    <div>-->
+                    <!--                        <div th:text=""> 작성자</div>-->
+                    <!--                        <div th:text=""> 댓글 내용</div>-->
+                    <!--                    </div>-->
                 </div>
-<!--                <div>-->
-<!--                    <div>~개의 댓글</div>-->
-<!--                    <div>-->
-<!--                        <p>작성자</p>-->
-<!--                        <p>내용</p>-->
-<!--                    </div>-->
-<!--                </div>-->
             </div>
         </div>
     </section>

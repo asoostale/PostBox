@@ -287,3 +287,24 @@ join {
 .button-write {
     border: 1px solid black;
 }
+
+.post-detail-reply {
+    background-color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #D3D3D3;
+    padding: 13px;
+}
+
+.reply-input {
+    width: 100%;
+
+}
+.reply-submit {
+    color: #a8d4fa;
+}
+
+.reply-form {
+    width: 100%;
+    background-color: #F2F6FF;
+}

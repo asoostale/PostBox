@@ -1,6 +1,7 @@
 package com.postbox.domain.post;
 
 import lombok.Data;
+import org.springframework.security.core.userdetails.User;
 
 import java.time.LocalDateTime;
 
@@ -11,10 +12,23 @@ public class PostDto {
     private String content;
     private LocalDateTime writeAt;
 
+    private String username;
+
+    public PostDto() {
+    }
+
     public PostDto(Long id, String title, String content, LocalDateTime writeAt) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.writeAt = writeAt;
+    }
+
+    public PostDto(Long id, String title, String content, LocalDateTime writeAt, String username) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.writeAt = writeAt;
+        this.username = username;
     }
 }

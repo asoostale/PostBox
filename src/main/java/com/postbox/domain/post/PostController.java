@@ -1,5 +1,6 @@
 package com.postbox.domain.post;
 
+import com.postbox.domain.post.reply.ReplyForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -66,6 +67,7 @@ public class PostController {
     public String postDetailPage(Model model, @PathVariable("id") Long id) {
         PostDto findPost = postService.findById(id);
         model.addAttribute("post", findPost);
+        model.addAttribute("replyForm", new ReplyForm());
         return "/post/detail/post-detail";
     }
 }
