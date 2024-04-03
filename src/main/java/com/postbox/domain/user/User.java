@@ -50,8 +50,8 @@ public class User {
     private List<Message> messages = new ArrayList<>();
     @OneToMany(mappedBy = "user")
     private List<SubReply> subReplies = new ArrayList<>();
-    @OneToMany(mappedBy = "user")
-    private List<Log> logs = new ArrayList<>();
+
+
 
 
 

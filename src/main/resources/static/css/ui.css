@@ -308,3 +308,9 @@ join {
     width: 100%;
     background-color: #F2F6FF;
 }
+
+.reply-content {
+    font-size: 12px;
+    padding: 6px;
+    border-bottom: 1px solid black;
+}
