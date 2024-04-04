@@ -11,6 +11,7 @@ public class PostDto {
     private String title;
     private String content;
     private LocalDateTime writeAt;
+    private CategoryTest categoryTest;
 
     private String username;
 

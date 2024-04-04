@@ -44,15 +44,15 @@
                 <h2 class="main-title-board">글 작성</h2>
                 <div class="board-write">
                     <form th:action="@{/board-write}" method="post" th:object="${postForm}">
-                        <select name="languages" id="lang">
-                            <option value="javascript">자유게시판</option>
-                            <option value="php">질문게시판</option>
-                            <option value="java">공지사항</option>
-                            <option value="golang" disabled>추천게시판</option>
+                        <select th:field="*{categoryTest}">
+                            <option value="">카테고리를 선택해주세요.</option>
+                            <option th:each="category : ${allCategories}"
+                                    th:value="${category}"
+                                    th:text="${category}">카테고리</option>
                         </select>
-                    <input type="text" name="title" placeholder="제목을 입력해주세요." th:field="*{title}"> <br/>
-                    <textarea name="content" id="" cols="30" rows="10" placeholder="내용을 입력해주세요." th:field="*{content}"></textarea><br/>
-                    <button>제출</button>
+                        <input type="text" name="title" placeholder="제목을 입력해주세요." th:field="*{title}"> <br/>
+                        <textarea name="content" cols="30" rows="10" placeholder="내용을 입력해주세요." th:field="*{content}"></textarea><br/>
+                        <button>제출</button>
                     </form>
                 </div>
             </li>

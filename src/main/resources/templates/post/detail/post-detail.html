@@ -61,8 +61,9 @@
                             작성자 : <p th:text="${post.username}">작성자</p>
                             작성일시 : <p th:text="${#temporals.format(post.writeAt, 'yyyy-mm-dd HH:mm')}">작성 일시</p>
                         </div>
+                        <div class="post-detail-content-box">
                         <p class="post-detail-content" th:text="${post.getContent()}">내용</p>
-
+                        </div>
                     <form th:action="@{/post/{id}/reply(id=${post.id})}" method="post" th:object="${replyForm}">
                         <input type="text" th:field="*{contents}" placeholder="댓글 달기.." class="reply-input">
                         <button type="submit" class="reply-submit">게시</button>

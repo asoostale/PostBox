@@ -55,6 +55,8 @@ public class PostController {
     @GetMapping("/board-write")
     public String writePage(Model model) {
         model.addAttribute("postForm", new PostForm());
+        model.addAttribute("allCategories", CategoryTest.values());
+
         return "/post/detail/write";
     }
 

@@ -8,4 +8,6 @@ public class PostForm {
 
     private String title;
     private String content;
+    private CategoryTest categoryTest;
+
 }

@@ -4,9 +4,10 @@ package com.postbox.domain.category;
 import com.postbox.domain.post.Post;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Getter
+@Getter @Setter
 public class CategoryContent {
 
     /**

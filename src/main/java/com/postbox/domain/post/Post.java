@@ -29,6 +29,8 @@ public class Post {
     private LocalDateTime writeAt;
     private LocalDateTime modifiedAt;
     private int viewCount;
+    @Enumerated(EnumType.STRING)
+    private CategoryTest categoryTest;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id")

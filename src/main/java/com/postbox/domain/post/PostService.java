@@ -29,6 +29,7 @@ public class PostService {
         post.setTitle(postForm.getTitle());
         post.setContents(postForm.getContent());
         post.setWriteAt(LocalDateTime.now());
+        post.setCategoryTest(postForm.getCategoryTest());
         post.setUser(user);
         postRepository.save(post);
     }
