@@ -48,26 +48,11 @@
     <section class="primary">
         <ul class="board-list">
             <li class="board-item">
-                <h2>추천게시판</h2>
-                <div class="board-desc">
-                    <p>안녕하세요.1</p>
-                    <p>안녕하세요.2</p>
-                    <p>안녕하세요.3</p>
-                    <p>안녕하세요.4</p>
-                    <p>안녕하세요.5</p>
-                    <p>안녕하세요.6</p>
-                    <p>안녕하세요.7</p>
-                    <p>안녕하세요.8</p>
-                    <p>안녕하세요.9</p>
-                    <p>안녕하세요.10</p>
-                </div>
-            </li>
-            <li class="board-item">
                 <a th:href="@{/board-free}" class="ui-page-boardName">
-                    <h2>자유게시판</h2>
+                    <h2>추천게시판</h2>
                 </a>
                 <div class="board-desc">
-                    <ul class="board-list" th:each="post : ${posts}">
+                    <ul class="board-list" th:each="post : ${recommendPosts}">
                         <li class="board-list-li">
                             <a th:href="@{/post/{id}(id=${post.id})}" style="text-decoration: none; color: inherit">
                                 <p class="board-title" th:text="${post.title}">제목</p>
@@ -77,33 +62,45 @@
                 </div>
             </li>
             <li class="board-item">
-                <h2>질문게시판</h2>
+                <a th:href="@{/board-free}" class="ui-page-boardName">
+                    <h2>자유게시판</h2>
+                </a>
                 <div class="board-desc">
-                    <p>안녕하세요.1</p>
-                    <p>안녕하세요.2</p>
-                    <p>안녕하세요.3</p>
-                    <p>안녕하세요.4</p>
-                    <p>안녕하세요.5</p>
-                    <p>안녕하세요.6</p>
-                    <p>안녕하세요.7</p>
-                    <p>안녕하세요.8</p>
-                    <p>안녕하세요.9</p>
-                    <p>안녕하세요.10</p>
+                    <ul class="board-list" th:each="post : ${freePosts}">
+                        <li class="board-list-li">
+                            <a th:href="@{/post/{id}(id=${post.id})}" style="text-decoration: none; color: inherit">
+                                <p class="board-title" th:text="${post.title}">제목</p>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </li>
             <li class="board-item">
-                <h2>갤러리</h2>
+                <a th:href="@{/board-free}" class="ui-page-boardName">
+                    <h2>질문게시판</h2>
+                </a>
                 <div class="board-desc">
-                    <p>안녕하세요.1</p>
-                    <p>안녕하세요.2</p>
-                    <p>안녕하세요.3</p>
-                    <p>안녕하세요.4</p>
-                    <p>안녕하세요.5</p>
-                    <p>안녕하세요.6</p>
-                    <p>안녕하세요.7</p>
-                    <p>안녕하세요.8</p>
-                    <p>안녕하세요.9</p>
-                    <p>안녕하세요.10</p>
+                    <ul class="board-list" th:each="post : ${questPosts}">
+                        <li class="board-list-li">
+                            <a th:href="@{/post/{id}(id=${post.id})}" style="text-decoration: none; color: inherit">
+                                <p class="board-title" th:text="${post.title}">제목</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="board-item">
+                <a th:href="@{/board-free}" class="ui-page-boardName">
+                    <h2>공지사항</h2>
+                </a>
+                <div class="board-desc">
+                    <ul class="board-list" th:each="post : ${announcePosts}">
+                        <li class="board-list-li">
+                            <a th:href="@{/post/{id}(id=${post.id})}" style="text-decoration: none; color: inherit">
+                                <p class="board-title" th:text="${post.title}">제목</p>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </li>
         </ul>

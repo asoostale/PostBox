@@ -26,28 +26,28 @@ public class PostController {
 
     @GetMapping("/board-free")
     public String freeBoardPage(Model model) {
-        List<PostDto> posts = postService.findAllPost();
+        List<PostDto> posts = postService.findAllPostFree();
         model.addAttribute("posts", posts);
         return "/post/free-board";
     }
 
     @GetMapping("/board-featured")
     public String featuredBoardPage(Model model) {
-        List<PostDto> posts = postService.findAllPost();
+        List<PostDto> posts = postService.findAllPostRecommend();
         model.addAttribute("posts", posts);
         return "/post/featured-board";
     }
 
     @GetMapping("/board-quest")
     public String questBoardPage(Model model) {
-        List<PostDto> posts = postService.findAllPost();
+        List<PostDto> posts = postService.findAllPostQuest();
         model.addAttribute("posts", posts);
         return "/post/quest-board";
     }
 
     @GetMapping("/board-announce")
     public String announceBoardPage(Model model) {
-        List<PostDto> posts = postService.findAllPost();
+        List<PostDto> posts = postService.findAllPostAnnounce();
         model.addAttribute("posts", posts);
         return "/post/announce-board";
     }

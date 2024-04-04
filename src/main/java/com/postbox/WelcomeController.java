@@ -18,8 +18,16 @@ public class WelcomeController {
 
     @GetMapping("/")
     public String home(Model model) {
+        List<PostDto> allPostFree = postService.findAllPostFree();
+        List<PostDto> allPostQuest = postService.findAllPostQuest();
+        List<PostDto> allPostAnnounce = postService.findAllPostAnnounce();
+        List<PostDto> allPostRecommend = postService.findAllPostRecommend();
         List<PostDto> posts = postService.findAllPost();
         model.addAttribute("posts", posts);
+        model.addAttribute("freePosts", allPostFree);
+        model.addAttribute("questPosts", allPostQuest);
+        model.addAttribute("announcePosts", allPostAnnounce);
+        model.addAttribute("recommendPosts", allPostRecommend);
         return "ui/ui-page";
     }
 }

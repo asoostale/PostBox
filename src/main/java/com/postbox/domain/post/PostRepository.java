@@ -8,6 +8,16 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, Long> {
 
 
-    @Query("select p from Post p ORDER BY p.id desc")
-    List<Post> findAll();
+    @Query("SELECT p FROM Post p WHERE p.categoryTest = '자유' ORDER BY p.id DESC")
+    List<Post> findAllFree();
+
+    @Query("SELECT p FROM Post p WHERE p.categoryTest = '질문' ORDER BY p.id DESC")
+    List<Post> findAllQuest();
+
+    @Query("SELECT p FROM Post p WHERE p.categoryTest = '공지사항' ORDER BY p.id DESC")
+    List<Post> findAllAnnounce();
+
+    @Query("SELECT p FROM Post p WHERE p.categoryTest = '추천' ORDER BY p.id DESC")
+    List<Post> findAllRecommend();
+
 }

@@ -36,7 +36,31 @@ public class PostService {
 
     public List<PostDto> findAllPost() {
         return postRepository.findAll().stream()
-                .map(p -> new PostDto(p.getId(),p.getTitle(), p.getContents(), p.getWriteAt()))
+                .map(p -> new PostDto(p.getId(), p.getTitle(), p.getContents(), p.getWriteAt()))
+                .collect(Collectors.toList());
+    }
+
+    public List<PostDto> findAllPostFree() {
+        return postRepository.findAllFree().stream()
+                .map(p -> new PostDto(p.getId(), p.getTitle(), p.getContents(), p.getWriteAt()))
+                .collect(Collectors.toList());
+    }
+
+    public List<PostDto> findAllPostAnnounce() {
+        return postRepository.findAllAnnounce().stream()
+                .map(p -> new PostDto(p.getId(), p.getTitle(), p.getContents(), p.getWriteAt()))
+                .collect(Collectors.toList());
+    }
+
+    public List<PostDto> findAllPostQuest() {
+        return postRepository.findAllQuest().stream()
+                .map(p -> new PostDto(p.getId(), p.getTitle(), p.getContents(), p.getWriteAt()))
+                .collect(Collectors.toList());
+    }
+
+    public List<PostDto> findAllPostRecommend() {
+        return postRepository.findAllRecommend().stream()
+                .map(p -> new PostDto(p.getId(), p.getTitle(), p.getContents(), p.getWriteAt()))
                 .collect(Collectors.toList());
     }
 
@@ -44,7 +68,7 @@ public class PostService {
     public PostDto findById(Long id) {
 
         Post post = postRepository.findById(id).get();
-        PostDto postDto = new PostDto(post.getId(),post.getTitle(), post.getContents(), post.getWriteAt(), post.getUser().getUsername());
+        PostDto postDto = new PostDto(post.getId(), post.getTitle(), post.getContents(), post.getWriteAt(), post.getUser().getUsername());
         return postDto;
     }
 
