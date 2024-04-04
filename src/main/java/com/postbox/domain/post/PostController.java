@@ -6,6 +6,7 @@ import com.postbox.domain.post.reply.ReplyRepository;
 import com.postbox.domain.post.reply.ReplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +28,9 @@ public class PostController {
     @GetMapping("/board-free")
     public String freeBoardPage(Model model) {
         List<PostDto> posts = postService.findAllPostFree();
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        model.addAttribute("username", username);
         model.addAttribute("posts", posts);
         return "/post/free-board";
     }
@@ -34,6 +38,9 @@ public class PostController {
     @GetMapping("/board-featured")
     public String featuredBoardPage(Model model) {
         List<PostDto> posts = postService.findAllPostRecommend();
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        model.addAttribute("username", username);
         model.addAttribute("posts", posts);
         return "/post/featured-board";
     }
@@ -41,6 +48,9 @@ public class PostController {
     @GetMapping("/board-quest")
     public String questBoardPage(Model model) {
         List<PostDto> posts = postService.findAllPostQuest();
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        model.addAttribute("username", username);
         model.addAttribute("posts", posts);
         return "/post/quest-board";
     }
@@ -48,12 +58,17 @@ public class PostController {
     @GetMapping("/board-announce")
     public String announceBoardPage(Model model) {
         List<PostDto> posts = postService.findAllPostAnnounce();
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
         model.addAttribute("posts", posts);
+        model.addAttribute("username", username);
         return "/post/announce-board";
     }
 
     @GetMapping("/board-write")
     public String writePage(Model model) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        model.addAttribute("username", username);
         model.addAttribute("postForm", new PostForm());
         model.addAttribute("allCategories", CategoryTest.values());
 
@@ -75,6 +90,9 @@ public class PostController {
         PostDto findPost = postService.findById(id);
         List<Reply> replies = replyService.allComments();
         long totalCount = replyRepository.totalCount(id);
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        model.addAttribute("username", username);
         model.addAttribute("totalCount", totalCount);
         model.addAttribute("replies", replies);
         model.addAttribute("post", findPost);

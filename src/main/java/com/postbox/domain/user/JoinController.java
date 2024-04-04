@@ -1,6 +1,7 @@
 package com.postbox.domain.user;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,9 @@ public class JoinController {
 
     @GetMapping("/join")
     public String joinPage(Model model) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        model.addAttribute("username", username);
         model.addAttribute("joinForm", new JoinForm());
         return "service/join";
     }

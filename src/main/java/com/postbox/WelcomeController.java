@@ -22,8 +22,9 @@ public class WelcomeController {
         List<PostDto> allPostQuest = postService.findAllPostQuest();
         List<PostDto> allPostAnnounce = postService.findAllPostAnnounce();
         List<PostDto> allPostRecommend = postService.findAllPostRecommend();
-        List<PostDto> posts = postService.findAllPost();
-        model.addAttribute("posts", posts);
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        model.addAttribute("username", username);
         model.addAttribute("freePosts", allPostFree);
         model.addAttribute("questPosts", allPostQuest);
         model.addAttribute("announcePosts", allPostAnnounce);

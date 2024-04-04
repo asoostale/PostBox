@@ -47,32 +47,7 @@
     display: flex;
 }
 
-label[for="modal-switch"] {
-    display: flex;
-    border: 1px solid #acacf3;
 
-    /*margin-right: 250px;*/
-    border-radius: 5px;
-    background: #DDEBFF;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0.5rem;
-    right: 1rem;
-    z-index: 100;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    /* background: red; */
-}
-
-label[for="modal-switch"]:before {
-    content: "로그인";
-
-    border-radius: 10px;
-    font-size: 1.3rem;
-    cursor: pointer;
-}
 
 #modal-switch:checked ~ label[for="modal-switch"]:before {
     color: dodgerblue;
