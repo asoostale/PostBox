@@ -115,14 +115,18 @@ public class PostController {
         model.addAttribute("replies", replies);
         model.addAttribute("post", findPost);
         model.addAttribute("replyForm", new ReplyForm());
-        return "/post/detail/edit";
+        return "post/detail/edit";
 
     }
 
     @PostMapping("/post/{id}/edit")
     public String postEdit(PostDto postDto) {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
+        if (postDto.getCategoryTest() == null) {
+            postDto.setCategoryTest(CategoryTest.자유);
+        }
         postService.editPost(postDto, username);
 
         return "redirect:/";

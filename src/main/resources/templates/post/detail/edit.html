@@ -54,7 +54,7 @@
                 <div class="board-write">
                     <form th:action="@{/post/{id}/edit(id=${post.id})}" method="post" th:object="${post}">
                         <select th:field="*{categoryTest}">
-                            <option value="">카테고리를 선택해주세요.</option>
+                            <option value="">카테고리를 선택해주세요.(기본 : 자유게시판)</option>
                             <option th:each="category : ${allCategories}"
                                     th:value="${category}"
                                     th:text="${category}">카테고리</option>

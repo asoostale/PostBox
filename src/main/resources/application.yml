@@ -4,7 +4,7 @@ spring:
       enabled: true
   security:
     user:
-      name: test
+      name: admin
       password: 12311
   datasource:
     url: jdbc:mysql://localhost:3306/POSTBOX?serverTimezone=Asia/Seoul
@@ -13,7 +13,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
