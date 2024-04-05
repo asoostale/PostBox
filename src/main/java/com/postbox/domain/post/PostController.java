@@ -101,4 +101,30 @@ public class PostController {
         model.addAttribute("replyForm", new ReplyForm());
         return "/post/detail/post-detail";
     }
+
+    @GetMapping("/post/{id}/edit")
+    public String postEditPage(Model model, @PathVariable("id") Long id) {
+        PostDto findPost = postService.findById(id);
+        List<Reply> replies = replyService.allComments();
+        long totalCount = replyRepository.totalCount(id);
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        model.addAttribute("allCategories", CategoryTest.values());
+        model.addAttribute("username", username);
+        model.addAttribute("totalCount", totalCount);
+        model.addAttribute("replies", replies);
+        model.addAttribute("post", findPost);
+        model.addAttribute("replyForm", new ReplyForm());
+        return "/post/detail/edit";
+
+    }
+
+    @PostMapping("/post/{id}/edit")
+    public String postEdit(PostDto postDto) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        postService.editPost(postDto, username);
+
+        return "redirect:/";
+
+    }
 }

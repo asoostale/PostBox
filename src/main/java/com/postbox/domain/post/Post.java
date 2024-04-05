@@ -44,4 +44,6 @@ public class Post {
     @OneToMany(mappedBy = "post")
     List<Reply> replies = new ArrayList<>();
 
+
+
 }

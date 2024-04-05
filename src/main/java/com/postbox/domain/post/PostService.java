@@ -2,6 +2,8 @@ package com.postbox.domain.post;
 
 import com.postbox.domain.user.User;
 import com.postbox.domain.user.UserRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,7 @@ public class PostService {
 
     private final PostRepository postRepository;
     private final UserRepository userRepository;
+    private final EntityManager em;
 
     @Transactional
     public void savePost(PostForm postForm, String username) {
@@ -33,6 +36,24 @@ public class PostService {
         post.setUser(user);
         postRepository.save(post);
     }
+
+    @Transactional
+    public void editPost(PostDto postDto, String username) {
+        // findById 메서드를 사용하여 데이터베이스에서 기존 Post 엔티티 조회
+        Post post = postRepository.findById(postDto.getId())
+                .orElseThrow(() -> new EntityNotFoundException("Post not found with id " + postDto.getId()));
+
+        // Post 엔티티의 속성을 PostDto로부터 받은 새 값으로 업데이트
+        post.setTitle(postDto.getTitle());
+        post.setContents(postDto.getContent());
+        post.setModifiedAt(LocalDateTime.now()); // 수정 시간을 현재 시간으로 설정하는 것이 일반적인 경우에 해당
+        post.setCategoryTest(postDto.getCategoryTest());
+
+        // 여기서 save 호출은 필수가 아님. @Transactional 덕분에 변경 감지(dirty checking)가 일어나 업데이트가 자동으로 반영됨.
+        // 하지만, save를 호출해도 문제는 없으며, 명시적으로 호출하는 것이 더 직관적일 수 있음.
+        postRepository.save(post);
+    }
+
 
     public List<PostDto> findAllPost() {
         return postRepository.findAll().stream()
@@ -72,4 +93,11 @@ public class PostService {
         return postDto;
     }
 
+
+    //    public Post updatePost(PostEditForm postEditForm) {
+    //        Post post = postRepository.findById(postEditForm.getId()).get();
+    //        post.edit(postEditForm);
+    //      return   postRepository.save(post);
+    //
+    //    }
 }

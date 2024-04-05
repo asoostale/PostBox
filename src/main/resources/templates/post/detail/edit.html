@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Flex</title>
+    <link rel="stylesheet" th:href="@{/css/default.css}">
+    <link rel="stylesheet" th:href="@{/css/ui.css}">
+    <link rel="stylesheet" th:href="@{/css/ui-page.css}">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/9eb162ac0d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="page">
+    <!-- header -->
+    <header class="header">
+        <a href="/" th:href="@{/}">
+            <img src="/img/logo.png" alt="홈으로" class="header-logo">
+        </a>
+        <div sec:authorize="isAuthenticated()">
+            <p th:text="${username} + '님 환영합니다.'"></p>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <a href="/logout" th:href="@{/logout}">로그아웃</a>
+        </div>
+        <div sec:authorize="!isAuthenticated()">
+            <a href="/login" th:href="@{/login}">로그인</a>
+        </div>
+    </header>
+
+    <!-- menu -->
+    <ul class="menu">
+        <li class="menu-item">
+            <a href="#" class="menu-link">추천게시판</a>
+        </li>
+        <li class="menu-item">
+            <a href="#" class="menu-link">자유게시판</a>
+        </li>
+        <li class="menu-item">
+            <a href="#" class="menu-link">질문게시판</a>
+        </li>
+        <li class="menu-item">
+            <a href="#" class="menu-link">공지사항</a>
+        </li>
+    </ul>
+
+    <!-- <div class="content-container"> -->
+    <!-- primary -->
+    <section class="primary">
+        <ul class="board-list">
+            <li class="board-join">
+                <h2 class="main-title-board">글 수정</h2>
+                <div class="board-write">
+                    <form th:action="@{/post/{id}/edit(id=${post.id})}" method="post" th:object="${post}">
+                        <select th:field="*{categoryTest}">
+                            <option value="">카테고리를 선택해주세요.</option>
+                            <option th:each="category : ${allCategories}"
+                                    th:value="${category}"
+                                    th:text="${category}">카테고리</option>
+                        </select>
+                        <input type="text" name="title" th:field="*{title}"> <br/>
+                        <textarea name="content" cols="30" rows="10" placeholder="내용을 입력해주세요." th:field="*{content}"></textarea><br/>
+                        <button>제출</button>
+                    </form>
+                </div>
+            </li>
+            </li>
+        </ul>
+    </section>
+
+    <!-- secondary-a -->
+    <aside class="secondary secondary-a">
+    </aside>
+
+    <!-- secondary-b -->
+    <aside class="secondary secondary-b">
+    </aside>
+    <!-- </div> -->
+
+    <!-- footer -->
+    <footer class="footer">
+        <a href="https://github.com/asoostale">
+    <span>
+        github.com/asoostale
+        <i class="fab fa-github"></i>
+    </span><br/>
+            <p><a href="mailto:asoostale@naver.com">asoostale@naver.com</a></p>
+            <p><a href="tel:01030619579">TEl : 010-3061-9579</a></p>
+        </a>
+    </footer>
+</div>
+
+
+
+
+</div>
+</body>
+</html>

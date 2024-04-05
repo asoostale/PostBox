@@ -55,10 +55,11 @@
 
                 <a link rel="stylesheet" class="post-detail-category" th:href="@{/board-free}">
                     PostBox</a>
-                <form action="" method="post" th:if="${username == post.getUsername()}">
-                    <input type="submit" value="글 수정">
-                    <input type="submit" value="삭제">
-                </form>
+                <div th:if="${username == post.getUsername()}">
+                    <a class="post-edit-button" th:href="@{/post/{id}/edit(id=${post.id})}" role="button">수정</a>
+
+                    <button class="post-edit-button">삭제</button>
+                </div>
             </div>
             <div>
                 <div class="post-detail-title" th:text="${post.title}">제목</div>

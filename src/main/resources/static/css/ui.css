@@ -315,3 +315,8 @@ join {
     padding: 6px;
     border-bottom: 1px solid black;
 }
+
+.post-edit-button {
+    border: 1px solid black;
+    background-color: #F1F7FF;
+}
