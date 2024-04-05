@@ -54,7 +54,11 @@
             <div class="post-detail-category-box">
 
                 <a link rel="stylesheet" class="post-detail-category" th:href="@{/board-free}">
-                    자유게시판</a>
+                    PostBox</a>
+                <form action="" method="post" th:if="${username == post.getUsername()}">
+                    <input type="submit" value="글 수정">
+                    <input type="submit" value="삭제">
+                </form>
             </div>
             <div>
                 <div class="post-detail-title" th:text="${post.title}">제목</div>

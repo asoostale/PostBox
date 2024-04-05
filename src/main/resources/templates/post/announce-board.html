@@ -56,7 +56,7 @@
                 <div class="board-desc-board">
                     <ul class="board-list" th:each="post : ${posts}">
                         <li class="board-list-li">
-                            <a href="#" class="board-link:visited">
+                            <a th:href="@{/post/{id}(id=${post.id})}" class="board-link:visited">
                                 <p class="board-title" th:text="${post.title}">타이틀 제목을 나타내는 곳</p>
                             </a>
                         </li><br/>

@@ -87,6 +87,8 @@ public class PostController {
 
     @GetMapping("/post/{id}")
     public String postDetailPage(Model model, @PathVariable("id") Long id) {
+
+
         PostDto findPost = postService.findById(id);
         List<Reply> replies = replyService.allComments();
         long totalCount = replyRepository.totalCount(id);
