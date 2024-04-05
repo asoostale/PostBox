@@ -6,7 +6,6 @@ import com.postbox.domain.post.reply.ReplyRepository;
 import com.postbox.domain.post.reply.ReplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -23,6 +23,7 @@ public class PostController {
     private final PostService postService;
     private final ReplyService replyService;
     private final ReplyRepository replyRepository;
+    private final PostRepository postRepository;
 
 
     @GetMapping("/board-free")
@@ -126,5 +127,13 @@ public class PostController {
 
         return "redirect:/";
 
+    }
+
+    @PostMapping("/post/{id}/remove")
+    public String removePost(@PathVariable Long id) {
+        Post post = postRepository.findById(id).get();
+        postRepository.delete(post);
+
+        return "redirect:/";
     }
 }
