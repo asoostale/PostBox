@@ -140,4 +140,12 @@ public class PostController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/post/list")
+    public String searchPostListPage() {
+        return "";
+    }
+
+
+
 }

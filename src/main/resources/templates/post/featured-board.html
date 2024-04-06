@@ -51,17 +51,20 @@
         <ul class="board-list">
             <li class="board-join">
 
-                <h2 class="main-title-board" >추천게시판</h2>
+                <h2 class="main-title-board">추천게시판</h2>
                 <a th:href="@{/board-write}" class="button-write">글쓰기</a>
-                <input type="search">
-                <button>검색</button>
+                <form th:action="@{/post/search-list}" method="post">
+                    <input type="search">
+                    <button>검색</button>
+                </form>
                 <div class="board-desc-board">
                     <ul class="board-list" th:each="post : ${posts}">
                         <li class="board-list-li">
                             <a th:href="@{/post/{id}(id=${post.id})}" class="board-link:visited">
                                 <p class="board-title" th:text="${post.title}">제목</p>
                             </a>
-                        </li><br/>
+                        </li>
+                        <br/>
                     </ul>
                 </div>
 
@@ -91,8 +94,6 @@
         </a>
     </footer>
 </div>
-
-
 
 
 <script>
