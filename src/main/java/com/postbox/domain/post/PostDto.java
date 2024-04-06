@@ -12,6 +12,7 @@ public class PostDto {
     private String content;
     private LocalDateTime writeAt;
     private CategoryTest categoryTest;
+    private int viewCount;
 
     private String username;
 

@@ -88,9 +88,9 @@ public class PostController {
 
     @GetMapping("/post/{id}")
     public String postDetailPage(Model model, @PathVariable("id") Long id) {
-
-
+        Post post = postService.updateViewCount(id);
         PostDto findPost = postService.findById(id);
+        findPost.setViewCount(post.getViewCount());
         List<Reply> replies = replyService.allComments();
         long totalCount = replyRepository.totalCount(id);
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -145,7 +145,6 @@ public class PostController {
     public String searchPostListPage() {
         return "";
     }
-
 
 
 }

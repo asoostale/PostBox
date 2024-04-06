@@ -93,6 +93,13 @@ public class PostService {
         return postDto;
     }
 
+    @Transactional
+    public Post updateViewCount(Long id) {
+        Post post = postRepository.findById(id).get();
+        post.updateHits();
+        return post;
+    }
+
 
     //    public Post updatePost(PostEditForm postEditForm) {
     //        Post post = postRepository.findById(postEditForm.getId()).get();

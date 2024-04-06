@@ -44,6 +44,8 @@ public class Post {
     @OneToMany(mappedBy = "post")
     List<Reply> replies = new ArrayList<>();
 
-
+    public void updateHits() {
+        this.viewCount = viewCount + 1;
+    }
 
 }
