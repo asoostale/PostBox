@@ -324,3 +324,8 @@ join {
     border: 1px solid black;
     background-color: #F1F7FF;
 }
+
+.logout-button {
+    text-decoration: none;
+    margin-right: 15px;
+}
