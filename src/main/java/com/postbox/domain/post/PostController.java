@@ -28,12 +28,8 @@ public class PostController {
 
     @GetMapping("/board-free")
     public String freeBoardPage(Model model) {
-        List<PostDto> posts = postService.findAllPostWithUserAndViewCount();
-
-
+        List<PostDto> posts = postService.findAllPostWithUserAndViewCountFree();
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-
-
         model.addAttribute("username", username);
         model.addAttribute("posts", posts);
         return "/post/free-board";
@@ -41,7 +37,7 @@ public class PostController {
 
     @GetMapping("/board-featured")
     public String featuredBoardPage(Model model) {
-        List<PostDto> posts = postService.findAllPostRecommend();
+        List<PostDto> posts = postService.findAllPostWithUserAndViewCountFeat();
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
         model.addAttribute("username", username);
@@ -51,7 +47,7 @@ public class PostController {
 
     @GetMapping("/board-quest")
     public String questBoardPage(Model model) {
-        List<PostDto> posts = postService.findAllPostQuest();
+        List<PostDto> posts = postService.findAllPostWithUserAndViewCountQuestion();
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
         model.addAttribute("username", username);
@@ -61,7 +57,7 @@ public class PostController {
 
     @GetMapping("/board-announce")
     public String announceBoardPage(Model model) {
-        List<PostDto> posts = postService.findAllPostAnnounce();
+        List<PostDto> posts = postService.findAllPostWithUserAndViewCountAnnounce();
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         model.addAttribute("posts", posts);
         model.addAttribute("username", username);

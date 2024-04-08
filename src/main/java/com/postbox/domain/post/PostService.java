@@ -66,8 +66,23 @@ public class PostService {
                 .collect(Collectors.toList());
     }
 
-    public List<PostDto> findAllPostWithUserAndViewCount() {
-        return postRepository.findPostWithViewCountAndUser().stream()
+    public List<PostDto> findAllPostWithUserAndViewCountFree() {
+        return postRepository.findPostWithViewCountAndUserFree().stream()
+                .map(p -> new PostDto(p.getId(), p.getUser().getUsername(), p.getTitle(), p.getContents(), p.getWriteAt(), p.getCategoryTest(), p.getViewCount()))
+                .collect(Collectors.toList());
+    }
+    public List<PostDto> findAllPostWithUserAndViewCountAnnounce() {
+        return postRepository.findPostWithViewCountAndUserAnnounce().stream()
+                .map(p -> new PostDto(p.getId(), p.getUser().getUsername(), p.getTitle(), p.getContents(), p.getWriteAt(), p.getCategoryTest(), p.getViewCount()))
+                .collect(Collectors.toList());
+    }public List<PostDto> findAllPostWithUserAndViewCountFeat() {
+        return postRepository.findPostWithViewCountAndUserFeature().stream()
+                .map(p -> new PostDto(p.getId(), p.getUser().getUsername(), p.getTitle(), p.getContents(), p.getWriteAt(), p.getCategoryTest(), p.getViewCount()))
+                .collect(Collectors.toList());
+    }
+
+    public List<PostDto> findAllPostWithUserAndViewCountQuestion() {
+        return postRepository.findPostWithViewCountAndUserQuestion().stream()
                 .map(p -> new PostDto(p.getId(), p.getUser().getUsername(), p.getTitle(), p.getContents(), p.getWriteAt(), p.getCategoryTest(), p.getViewCount()))
                 .collect(Collectors.toList());
     }

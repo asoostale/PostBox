@@ -57,13 +57,14 @@
 
                         <li class="board-list-li">
 
-                            <a th:href="@{/post/{id}(id=${post.id})}" class="board-link:visited">
-                                <p class="board-title" th:text="${post.title}">타이틀 제목을 나타내는 곳</p>
-                                <p>작성자: <span th:text="${post.getUsername()}"></span></p>
-                                <p>조회수: <span th:text="${post.getViewCount()}"></span></p>
-
+                            <a th:href="@{/post/{id}(id=${post.id})}" class="board-link">
+                                <span class="board-title" th:text="${post.title}">타이틀 제목을 나타내는 곳</span>
+                                 <span th:text="${post.getUsername()}">작성자</span>
+                                 <span th:text="${post.getViewCount()}">조회수</span>
                             </a>
-                        </li><br/>
+
+                        </li>
+                        <br/>
                     </ul>
                 </div>
 

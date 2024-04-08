@@ -172,6 +172,7 @@ body {
     margin-top: 15px;
     width: 900px;
 }
+
 .board-write {
     display: block;
     flex: 1 1 auto;
@@ -239,11 +240,18 @@ join {
     font-weight: 400;
 
 }
+
 .board-title-ui {
     display: inline;
 }
+
 .board-link {
     text-decoration: none;
+}
+
+.board-link span {
+    display: inline-block; /* 인라인-블록으로 설정하여 같은 줄에 표시 */
+    margin-right: 10px; /* 요소 사이 간격 조정 */
 }
 
 .board-link:visited {
@@ -254,6 +262,7 @@ join {
     margin: 0;
     padding: 0;
 }
+
 .board-list-li {
     list-style-type: none;
     padding: 10px;
@@ -261,13 +270,15 @@ join {
     border-bottom: 1px solid #ededed;
     display: block;
 }
-.board-write-input{
+
+.board-write-input {
     border: 1px solid #D7D7D7;
     width: 700px;
     margin-left: 14px;
     height: 25px;
 }
-.board-write-textarea{
+
+.board-write-textarea {
     border: 1px solid #D7D7D7;
     width: 700px;
     height: 1000px;
@@ -303,6 +314,7 @@ join {
     width: 100%;
 
 }
+
 .reply-submit {
     color: #a8d4fa;
 }
@@ -322,6 +334,7 @@ join {
     border: 1px solid black;
     background-color: #F1F7FF;
 }
+
 .post-delete-button {
     border: 1px solid black;
     background-color: #F1F7FF;
@@ -331,6 +344,7 @@ join {
     text-decoration: none;
     margin-right: 15px;
 }
+
 .board-list-guide {
     text-decoration: none;
     font-size: 15px;
