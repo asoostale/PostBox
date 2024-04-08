@@ -20,7 +20,6 @@ public class PostService {
 
     private final PostRepository postRepository;
     private final UserRepository userRepository;
-    private final EntityManager em;
 
     @Transactional
     public void savePost(PostForm postForm, String username) {
@@ -64,6 +63,12 @@ public class PostService {
     public List<PostDto> findAllPostFree() {
         return postRepository.findAllFree().stream()
                 .map(p -> new PostDto(p.getId(), p.getTitle(), p.getContents(), p.getWriteAt()))
+                .collect(Collectors.toList());
+    }
+
+    public List<PostDto> findAllPostWithUserAndViewCount() {
+        return postRepository.findPostWithViewCountAndUser().stream()
+                .map(p -> new PostDto(p.getId(), p.getUser().getUsername(), p.getTitle(), p.getContents(), p.getWriteAt(), p.getCategoryTest(), p.getViewCount()))
                 .collect(Collectors.toList());
     }
 

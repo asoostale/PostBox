@@ -20,4 +20,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Query("SELECT p FROM Post p WHERE p.categoryTest = '추천' ORDER BY p.id DESC")
     List<Post> findAllRecommend();
 
+    @Query("select p from Post p join fetch p.user")
+    List<Post> findPostWithViewCountAndUser();
 }

@@ -239,7 +239,9 @@ join {
     font-weight: 400;
 
 }
-
+.board-title-ui {
+    display: inline;
+}
 .board-link {
     text-decoration: none;
 }
@@ -328,4 +330,8 @@ join {
 .logout-button {
     text-decoration: none;
     margin-right: 15px;
+}
+.board-list-guide {
+    text-decoration: none;
+    font-size: 15px;
 }

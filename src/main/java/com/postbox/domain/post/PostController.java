@@ -28,8 +28,11 @@ public class PostController {
 
     @GetMapping("/board-free")
     public String freeBoardPage(Model model) {
-        List<PostDto> posts = postService.findAllPostFree();
+        List<PostDto> posts = postService.findAllPostWithUserAndViewCount();
+
+
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
 
         model.addAttribute("username", username);
         model.addAttribute("posts", posts);

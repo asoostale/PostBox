@@ -58,7 +58,9 @@
                     <ul class="board-list" th:each="post : ${recommendPosts}">
                         <li class="board-list-li">
                             <a th:href="@{/post/{id}(id=${post.id})}" style="text-decoration: none; color: inherit">
-                                <p class="board-title" th:text="${post.title}">제목</p>
+                                <p class="board-title-ui" th:text="${post.title}">제목</p>
+                                <p th:text="${post.username}"></p>
+
                             </a>
                         </li>
                     </ul>
@@ -73,6 +75,8 @@
                         <li class="board-list-li">
                             <a th:href="@{/post/{id}(id=${post.id})}" style="text-decoration: none; color: inherit">
                                 <p class="board-title" th:text="${post.title}">제목</p>
+
+
                             </a>
                         </li>
                     </ul>
