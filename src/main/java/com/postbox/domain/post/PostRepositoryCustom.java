@@ -6,7 +6,7 @@ public interface PostRepositoryCustom {
 
     List<Post> searchByTitle(String title);
 
-    List<Post> searchByContents(String contents);
+    List<Post> searchByContent(String contents);
 
-    List<Post> searchByTitleWithContents(String title, String contents);
+    List<Post> searchByTitleAndContent(String title, String contents);
 }

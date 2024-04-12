@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -141,6 +143,25 @@ public class PostController {
     @GetMapping("/post/list")
     public String searchPostListPage() {
         return "";
+    }
+
+
+    @PostMapping("/post/search-list")
+    public String searchPosts(String searchType, String searchValue, Model model) {
+        List<Post> posts = new ArrayList<>();
+        switch (searchType) {
+            case "title":
+                posts = postRepository.searchByTitle(searchValue);
+                break;
+            case "content":
+                posts = postRepository.searchByContent(searchValue);
+                break;
+            case "titleAndContent":
+                posts = postRepository.searchByTitleAndContent(searchValue, searchValue);
+                break;
+        }
+        model.addAttribute("posts", posts);
+        return "/post/detail/post-search";
     }
 
 

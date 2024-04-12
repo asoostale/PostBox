@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+<h1>검색 결과</h1>
+<div th:unless="${#lists.isEmpty(posts)}">
+    <ul th:each="post : ${posts}">
+        <li th:text="${post.title} + ' : ' + ${post.contents}"></li>
+    </ul>
+</div>
+<div th:if="${#lists.isEmpty(posts)}">
+    <p>검색 결과가 없습니다.</p>
+</div>
+</body>
+</html>
