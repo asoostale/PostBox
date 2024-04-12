@@ -158,15 +158,25 @@ label[for="modal-switch"] span {
 
 .login-button {
     font-size: 20px;
-    width: 200px;
-    height: 30px;
-    background-color: #DCECFF;
-    color: #388AFF;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-left: 90px;
-}
+    width: 100px;
+    text-decoration: none;
 
+    background-color: #DCECFF;
+    color: inherit;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
+    
+}
+.margin-login {
+    margin-right: 65px;
+    font-size: 20px;
+    margin-bottom: 1px;
+    padding: 2px;
+}
+.login-link {
+    color: inherit;
+}
 .login-logo {
     width: 400px;
     padding: 50px;
@@ -249,3 +259,9 @@ background-color: #F1F7FF;
 
 }
 
+.login-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

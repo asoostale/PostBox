@@ -349,3 +349,14 @@ join {
     text-decoration: none;
     font-size: 15px;
 }
+
+.welcome-container {
+    display: flex;
+    justify-content: flex-end; /* 텍스트를 컨테이너의 오른쪽 끝으로 정렬 */
+    flex-grow: 1; /* 사용 가능한 공간을 모두 차지하도록 설정 */
+}
+
+.welcome-text {
+    padding-right: 10px;
+    font-weight: bold;/* 오른쪽 패딩으로 조금 더 여유를 줌 */
+}
