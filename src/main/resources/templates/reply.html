@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>대댓글 기능</title>
+    <style>
+        .reply-input, .sub-reply-form { display: none; }
+    </style>
+</head>
+<body>
+<div class="post-detail">
+    <!-- Existing reply display -->
+    <div class="reply-form" th:each="reply, stat : ${replies}">
+        <p class="reply-content" data-id="${stat.index}" th:text="${reply.contents}">내용</p>
+        <!-- Sub-reply input (initially hidden) -->
+        <div class="sub-reply-form" data-target="${stat.index}">
+            <input type="text" placeholder="대댓글 달기..">
+            <button type="button">게시</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Event listener for clicking on any reply content
+        document.querySelectorAll('.reply-content').forEach(item => {
+            item.addEventListener('click', function () {
+                // Find the associated sub-reply form and toggle visibility
+                const targetId = item.getAttribute('data-id');
+                const formToShow = document.querySelector(`.sub-reply-form[data-target="${targetId}"]`);
+                formToShow.style.display = formToShow.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    });
+</script>
+</body>
+</html>

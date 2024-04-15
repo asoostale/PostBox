@@ -1,17 +1,17 @@
 package com.postbox.domain.post;
 
-import com.postbox.domain.post.reply.Reply;
-import com.postbox.domain.post.reply.ReplyForm;
-import com.postbox.domain.post.reply.ReplyRepository;
-import com.postbox.domain.post.reply.ReplyService;
+import com.postbox.domain.post.reply.*;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.mbeans.SparseUserDatabaseMBean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class PostController {
     private final ReplyService replyService;
     private final ReplyRepository replyRepository;
     private final PostRepository postRepository;
-
+    private final SubReplyService subReplyService;
 
     @GetMapping("/board-free")
     public String freeBoardPage(Model model) {
@@ -164,5 +164,14 @@ public class PostController {
         return "/post/detail/post-search";
     }
 
+    @PostMapping("/post/reply/{id}/sub")
+    public String saveSubReply(@PathVariable("id") Long id, SubReplyDto subReplyDto, RedirectAttributes redirectAttributes) {
+        subReplyService.saveSubReply(id, subReplyDto);
+        redirectAttributes.addAttribute("id", id);
+        return "redirect:/post/{id}";
+    }
 
 }
+
+
+

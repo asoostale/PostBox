@@ -2,14 +2,16 @@ package com.postbox.domain.post.reply;
 
 import com.postbox.domain.user.User;
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
-@Getter
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class SubReply {
 
 
