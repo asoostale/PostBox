@@ -39,7 +39,7 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
     public List<Post> searchByTitleAndContent(String title, String content) {
         return queryFactory
                 .selectFrom(post)
-                .where(post.title.contains(title).and(post.contents.contains(content)))
+                .where(post.title.contains(title).or(post.contents.contains(content)))
                 .fetch();
     }
 }

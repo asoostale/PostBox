@@ -1,17 +1,94 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:board-link="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Search Results</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Flex</title>
+    <link rel="stylesheet" th:href="@{/css/default.css}">
+    <link rel="stylesheet" th:href="@{/css/ui.css}">
+    <link rel="stylesheet" th:href="@{/css/ui-page.css}">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/9eb162ac0d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>검색 결과</h1>
-<div th:unless="${#lists.isEmpty(posts)}">
-    <ul th:each="post : ${posts}">
-        <li th:text="${post.title} + ' : ' + ${post.contents}"></li>
+<div class="page">
+    <!-- header -->
+    <header class="header">
+        <a href="/" th:href="@{/}">
+            <img src="/img/logo.png" alt="홈으로" class="header-logo">
+        </a>
+        <div class="welcome-container" sec:authorize="isAuthenticated()">
+            <p class="welcome-text" th:text="${username} + '님 환영합니다.'"></p>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <a href="/logout" class="logout-button" th:href="@{/logout}">로그아웃</a>
+        </div>
+        <div sec:authorize="!isAuthenticated()">
+            <a href="/login" th:href="@{/login}">로그인</a>
+        </div>
+    </header>
+    <!-- menu -->
+    <ul class="menu">
+        <li class="menu-item">
+            <a th:href="@{/board-featured}" class="menu-link">추천게시판</a>
+        </li>
+        <li class="menu-item">
+            <a th:href="@{/board-free}" class="menu-link">자유게시판</a>
+        </li>
+        <li class="menu-item">
+            <a th:href="@{/board-quest}" class="menu-link">질문게시판</a>
+        </li>
+        <li class="menu-item">
+            <a th:href="@{/board-announce}" class="menu-link">공지사항</a>
+        </li>
     </ul>
+    <!-- primary -->
+    <section class="primary">
+        <div class="board-desc-board" th:unless="${#lists.isEmpty(posts)}">
+            <ul class="board-list" th:each="post : ${posts}">
+                <li class="board-list-li">
+                    <a th:href="@{/post/{id}(id=${post.id})}" class="board-link">
+                        <span class="board-title" th:text="${post.title}">타이틀 제목을 나타내는 곳</span>
+                        <span th:text="${post.getUser.getUsername()}">작성자</span>
+                        <span th:text="${post.getViewCount()}">조회수</span>
+                    </a>
+                </li>
+                <br/>
+            </ul>
+        </div>
+    </section>
+
+
+    <aside class="secondary secondary-a">
+    </aside>
+    <!-- secondary-b -->
+    <aside class="secondary secondary-b">
+    </aside>
 </div>
-<div th:if="${#lists.isEmpty(posts)}">
-    <p>검색 결과가 없습니다.</p>
-</div>
+<!-- footer -->
+<footer class="footer">
+    <a href="https://github.com/asoostale">
+        <span>github.com/asoostale <i class="fab fa-github"></i></span><br/>
+        <p><a href="mailto:asoostale@naver.com">asoostale@naver.com</a></p>
+        <p><a href="tel:01030619579">TEL : 010-3061-9579</a></p>
+    </a>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.post-delete-button').forEach(button => {
+            button.addEventListener('click', function (event) {
+                if (!confirm('삭제하시겠습니까?')) {
+                    event.preventDefault();
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
+
+
+
+

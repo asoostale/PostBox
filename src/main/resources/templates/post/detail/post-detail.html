@@ -47,39 +47,40 @@
     <!-- primary -->
     <section class="primary">
         <div class="post-detail">
-        <div>
+            <div>
 
-            <a link rel="stylesheet" class="post-detail-category" th:href="@{/board-free}">PostBox</a>
-            <div class="post-detail-title" th:text="${post.title}">제목</div>
-            <div th:if="${username == post.getUsername()}">
-                <a class="post-edit-button" th:href="@{/post/{id}/edit(id=${post.id})}" role="button">수정</a>
-            </div>
-            <form th:action="@{/post/{id}/remove(id=${post.id})}" method="post">
-                <button class="post-delete-button" data-id="${post.id}">삭제</button>
-            </form>
-            <div class="post-detail-writer">
-                작성자 : <p th:text="${post.username}">작성자</p>
-                작성일시 : <p th:text="${#temporals.format(post.writeAt, 'yyyy-mm-dd HH:mm')}">작성 일시</p>
-                조회수 : <p th:text="${post.getViewCount()}"></p>
-            </div>
-            <div class="post-detail-content-box">
-                <p class="post-detail-content" th:text="${post.getContent()}">내용</p>
-            </div>
-            <form th:action="@{/post/{id}/reply(id=${post.id})}" method="post" th:object="${replyForm}">
-                <input type="text" th:field="*{contents}" placeholder="댓글 달기.." class="reply-input">
-                <button type="submit" class="reply-submit">게시</button>
-                <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
-            </form>
-            <div class="post-detail-reply">
-                <p th:text="'댓글 ' + ${totalCount} + '개'"></p>
-            </div>
-            <div class="reply-form" th:each="reply : ${replies}">
-                <div th:if="${post.id == reply.getPost().getId()}">
-                    <p th:text="${reply.getUser().getUsername()}" style="font-weight: bold">작성자</p>
-                    <p class="reply-content" th:text="${reply.contents}">내용</p>
+                <a link rel="stylesheet" class="post-detail-category" th:href="@{/board-free}">PostBox</a>
+                <div class="post-detail-title" th:text="${post.title}">제목</div>
+                <div th:if="${username == post.getUsername()}">
+                    <a class="post-edit-button" th:href="@{/post/{id}/edit(id=${post.id})}" role="button">수정</a>
+                </div>
+                <form th:action="@{/post/{id}/remove(id=${post.id})}" method="post">
+                    <button class="post-delete-button" data-id="${post.id}">삭제</button>
+                </form>
+                <div class="post-detail-writer">
+                    작성자 : <p th:text="${post.username}">작성자</p>
+                    작성일시 : <p th:text="${#temporals.format(post.writeAt, 'yyyy-mm-dd HH:mm')}">작성 일시</p>
+                    조회수 : <p th:text="${post.getViewCount()}"></p>
+                </div>
+                <div class="post-detail-content-box">
+                    <p class="post-detail-content" th:text="${post.getContent()}">내용</p>
+                </div>
+                <form th:action="@{/post/{id}/reply(id=${post.id})}" method="post" th:object="${replyForm}">
+                    <input type="text" th:field="*{contents}" placeholder="댓글 달기.." class="reply-input">
+                    <button type="submit" class="reply-submit">게시</button>
+                    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+                </form>
+                <div class="post-detail-reply">
+                    <p th:text="'댓글 ' + ${totalCount} + '개'"></p>
+                </div>
+                <div class="reply-form" th:each="reply : ${replies}">
+                    <div th:if="${post.id == reply.getPost().getId()}">
+                        <p class="reply-writer" th:text="${reply.getUser().getUsername()}" style="font-weight: bold">
+                            작성자</p>
+                        <p class="reply-content" th:text="${reply.contents}">내용</p>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <!-- secondary-a -->

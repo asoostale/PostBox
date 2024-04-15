@@ -303,11 +303,12 @@ join {
 }
 
 .post-detail-reply {
-    background-color: white;
+    background-color: #F1F7FF;
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid #D3D3D3;
     padding: 13px;
+    margin-bottom: 15px;
 }
 
 .reply-input {
@@ -326,8 +327,9 @@ join {
 
 .reply-content {
     font-size: 12px;
-    padding: 6px;
-    border-bottom: 1px solid black;
+    padding:25px;
+    border-bottom: 1px solid white;
+    background-color: white;
 }
 
 .post-edit-button {
@@ -359,4 +361,11 @@ join {
 .welcome-text {
     padding-right: 10px;
     font-weight: bold;/* 오른쪽 패딩으로 조금 더 여유를 줌 */
+}
+
+.reply-writer {
+    background-color: #E8E8E8;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
 }
