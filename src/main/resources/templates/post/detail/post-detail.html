@@ -83,10 +83,15 @@
                                 <button type="submit">게시</button>
                             </div>
                         </form>
-                        <div class="sub-replies" th:each="subReply : ${reply.subReplies}">
-                            <p class="sub-reply-content" th:text="${subReply.contents}">대댓글 내용</p>
-                        </div>
+                        <div class="reply-form-sub" th:each="subReply : ${reply.subReplies}">
+                            <p>
+                                <span class="reply-sub-myName" style="font-weight: bold" th:text="${subReply.user.username}"></span><br/>
+                                <i class="fa-solid fa-reply"></i>
+                                <span class="reply-sub-username" th:text="${reply.getUser().username}"></span>
+                                <span th:text="${subReply.contents}"></span>
+                            </p>
 
+                        </div>
                     </div>
                 </div>
 

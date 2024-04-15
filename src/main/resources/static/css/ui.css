@@ -322,12 +322,20 @@ join {
 
 .reply-form {
     width: 100%;
-    background-color: #F2F6FF;
+    background-color: white;
+
+}
+
+.reply-form-sub {
+    width: 100%;
+    background-color: white;
+    padding-left: 30px;
+
 }
 
 .reply-content {
     font-size: 12px;
-    padding:25px;
+    padding: 25px;
     border-bottom: 1px solid white;
     background-color: white;
 }
@@ -360,13 +368,27 @@ join {
 
 .welcome-text {
     padding-right: 10px;
-    font-weight: bold;/* 오른쪽 패딩으로 조금 더 여유를 줌 */
+    font-weight: bold; /* 오른쪽 패딩으로 조금 더 여유를 줌 */
 }
 
 .reply-writer {
     background-color: #E8E8E8;
     border-radius: 5px;
     padding: 10px;
+    font-size: 15px;
+}
+
+.reply-writer-sub {
+    background-color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.reply-content-sub {
+    background-color: white;
+    border-radius: 5px;
+
     font-size: 15px;
 }
 
@@ -377,5 +399,24 @@ join {
 }
 
 .sub-reply-content {
+    display: inline;
     color: #666;
+}
+
+.sub-reply-content-username {
+    display: inline;
+    color: #666;
+    font-weight: bold;
+}
+
+
+.reply-sub-username {
+    color: #CDCDCD;
+}
+
+.reply-sub-myName {
+    font-weight: bold;
+    padding-left: 88px;
+    font-size: 18px;
+
 }
