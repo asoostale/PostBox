@@ -22,16 +22,19 @@ public class SubReplyService {
     private final UserRepository userRepository;
 
     @Transactional
-    public void saveSubReply(Long id, SubReplyDto subReplyDto) {
+    public Long saveSubReply(Long id, SubReplyDto subReplyDto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         User user = userRepository.findByUsername(username);
-        Reply reply = replyRepository.findById(id).get();
+        Reply reply = replyRepository.findById(id).orElseThrow(() -> new RuntimeException("Reply not found"));
         SubReply subReply = new SubReply();
         subReply.setReply(reply);
         subReply.setContents(subReplyDto.getContents());
         subReply.setWriteAt(LocalDateTime.now());
         subReply.setUser(user);
         subReplyRepository.save(subReply);
+        // 원본 게시물 ID 반환
+        return reply.getPost().getId();
     }
+
 }

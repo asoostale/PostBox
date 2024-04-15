@@ -165,11 +165,13 @@ public class PostController {
     }
 
     @PostMapping("/post/reply/{id}/sub")
-    public String saveSubReply(@PathVariable("id") Long id, SubReplyDto subReplyDto, RedirectAttributes redirectAttributes) {
-        subReplyService.saveSubReply(id, subReplyDto);
-        redirectAttributes.addAttribute("id", id);
+    public String saveSubReply(@PathVariable("id") Long replyId, SubReplyDto subReplyDto, RedirectAttributes redirectAttributes) {
+        Long postId = subReplyService.saveSubReply(replyId, subReplyDto);
+        redirectAttributes.addAttribute("id", postId);
         return "redirect:/post/{id}";
     }
+
+
 
 }
 

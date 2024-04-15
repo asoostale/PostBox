@@ -83,6 +83,10 @@
                                 <button type="submit">게시</button>
                             </div>
                         </form>
+                        <div class="sub-replies" th:each="subReply : ${reply.subReplies}">
+                            <p class="sub-reply-content" th:text="${subReply.contents}">대댓글 내용</p>
+                        </div>
+
                     </div>
                 </div>
 

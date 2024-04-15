@@ -369,3 +369,13 @@ join {
     padding: 10px;
     font-size: 15px;
 }
+
+.sub-replies {
+    margin-left: 20px;
+    border-left: 2px solid #ccc;
+    padding-left: 10px;
+}
+
+.sub-reply-content {
+    color: #666;
+}
