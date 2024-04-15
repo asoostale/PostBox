@@ -23,6 +23,7 @@ public class SubReplyService {
 
     @Transactional
     public Long saveSubReply(Long id, SubReplyDto subReplyDto) {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         User user = userRepository.findByUsername(username);
@@ -33,7 +34,7 @@ public class SubReplyService {
         subReply.setWriteAt(LocalDateTime.now());
         subReply.setUser(user);
         subReplyRepository.save(subReply);
-        // 원본 게시물 ID 반환
+
         return reply.getPost().getId();
     }
 

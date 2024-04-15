@@ -327,16 +327,18 @@ join {
 }
 
 .reply-form-sub {
+    display: inline-block;
     width: 100%;
     background-color: white;
     padding-left: 30px;
+    float: right;
 
 }
 
 .reply-content {
     font-size: 12px;
     padding: 25px;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #EEEEEE;
     background-color: white;
 }
 
@@ -419,4 +421,14 @@ join {
     padding-left: 88px;
     font-size: 18px;
 
+}
+
+.reply-sub-contents {
+
+}
+
+.reply-sub-writeAt {
+    font-size: 12px;
+    color: #9A9A9A;
+    float: right;
 }

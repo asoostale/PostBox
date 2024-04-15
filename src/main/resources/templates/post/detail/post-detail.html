@@ -9,12 +9,10 @@
     <link rel="stylesheet" th:href="@{/css/default.css}">
     <link rel="stylesheet" th:href="@{/css/ui.css}">
     <link rel="stylesheet" th:href="@{/css/ui-page.css}">
-    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/9eb162ac0d.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="page">
-    <!-- header -->
     <header class="header">
         <a href="/" th:href="@{/}">
             <img src="/img/logo.png" alt="홈으로" class="header-logo">
@@ -23,89 +21,69 @@
             <p class="welcome-text" th:text="${username} + '님 환영합니다.'"></p>
         </div>
         <div sec:authorize="isAuthenticated()">
-            <a href="/logout" class="logout-button" th:href="@{/logout}">로그아웃</a>
+            <a href="/logout" th:href="@{/logout}" class="logout-button">로그아웃</a>
         </div>
         <div sec:authorize="!isAuthenticated()">
-            <a href="/login" th:href="@{/login}">로그인</a>
+            <a href="/login" th:href="@{/login}" class="login-button">로그인</a>
         </div>
     </header>
-    <!-- menu -->
     <ul class="menu">
-        <li class="menu-item">
-            <a th:href="@{/board-featured}" class="menu-link">추천게시판</a>
-        </li>
-        <li class="menu-item">
-            <a th:href="@{/board-free}" class="menu-link">자유게시판</a>
-        </li>
-        <li class="menu-item">
-            <a th:href="@{/board-quest}" class="menu-link">질문게시판</a>
-        </li>
-        <li class="menu-item">
-            <a th:href="@{/board-announce}" class="menu-link">공지사항</a>
-        </li>
+        <li class="menu-item"><a th:href="@{/board-featured}" class="menu-link">추천게시판</a></li>
+        <li class="menu-item"><a th:href="@{/board-free}" class="menu-link">자유게시판</a></li>
+        <li class="menu-item"><a th:href="@{/board-quest}" class="menu-link">질문게시판</a></li>
+        <li class="menu-item"><a th:href="@{/board-announce}" class="menu-link">공지사항</a></li>
     </ul>
-    <!-- primary -->
     <section class="primary">
         <div class="post-detail">
-            <div>
+            <a link rel="stylesheet" class="post-detail-category" th:href="@{/board-free}">PostBox</a>
+            <div class="post-detail-title" th:text="${post.title}">제목</div>
+            <div th:if="${username == post.getUsername()}">
+                <a class="post-edit-button" th:href="@{/post/{id}/edit(id=${post.id})}">수정</a>
+            </div>
+            <form th:action="@{/post/{id}/remove(id=${post.id})}" method="post">
+                <button class="post-delete-button" data-id="${post.id}">삭제</button>
+            </form>
+            <div class="post-detail-writer">
+                <span class="post-writer" th:text="${post.username}"/>
+                <span th:text="'작성일시 : ' + ${#temporals.format(post.writeAt, 'yyyy-MM-dd HH:mm')}"/>
+                <span class="post-view" th:text="'조회수 : ' + ${post.getViewCount()}"/>
+            </div>
+            <div class="post-detail-content-box">
+                <p class="post-detail-content" th:text="${post.getContent()}">내용</p>
+            </div>
+            <form th:action="@{/post/{id}/reply(id=${post.id})}" method="post" th:object="${replyForm}">
+                <input type="text" th:field="*{contents}" placeholder="댓글 달기.." class="reply-input">
+                <button type="submit" class="reply-submit">게시</button>
+                <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+            </form>
+            <div class="post-detail-reply">
+                <p th:text="'댓글 ' + ${totalCount} + '개'"></p>
+            </div>
+            <div th:each="reply, stat : ${replies}" class="reply-form">
+                <p class="reply-writer"
+                   th:text="${reply.getUser().getUsername()} + ' at ' + ${#temporals.format(reply.writeAt, 'yyyy-MM-dd HH:mm')}">
+                    작성자</p>
+                <p class="reply-content" th:text="${reply.contents}">내용</p>
+                <div class="reply-form-sub" th:each="subReply : ${reply.subReplies}">
+                    <p>
+                        <span class="reply-sub-myName" style="font-weight: bold"
+                              th:text="${subReply.user.username}"></span><br/>
+                        <i class="fa-solid fa-reply"></i>
+                        <span class="reply-sub-username" th:text="${reply.getUser().username}"></span>
+                        <span th:text="${subReply.contents}"></span>
+                    </p>
 
-                <a link rel="stylesheet" class="post-detail-category" th:href="@{/board-free}">PostBox</a>
-                <div class="post-detail-title" th:text="${post.title}">제목</div>
-                <div th:if="${username == post.getUsername()}">
-                    <a class="post-edit-button" th:href="@{/post/{id}/edit(id=${post.id})}" role="button">수정</a>
                 </div>
-                <form th:action="@{/post/{id}/remove(id=${post.id})}" method="post">
-                    <button class="post-delete-button" data-id="${post.id}">삭제</button>
-                </form>
-                <div class="post-detail-writer">
-                    작성자 : <p th:text="${post.username}">작성자</p>
-                    작성일시 : <p th:text="${#temporals.format(post.writeAt, 'yyyy-mm-dd HH:mm')}">작성 일시</p>
-                    조회수 : <p th:text="${post.getViewCount()}"></p>
+                <div class="sub-reply-form" style="display: none;">
+                    <form th:action="@{/post/reply/{id}/sub(id=${reply.id})}" method="post">
+                        <input type="text" name="contents" placeholder="대댓글 달기..">
+                        <button type="submit">게시</button>
+                    </form>
                 </div>
-                <div class="post-detail-content-box">
-                    <p class="post-detail-content" th:text="${post.getContent()}">내용</p>
-                </div>
-                <form th:action="@{/post/{id}/reply(id=${post.id})}" method="post" th:object="${replyForm}">
-                    <input type="text" th:field="*{contents}" placeholder="댓글 달기.." class="reply-input">
-                    <button type="submit" class="reply-submit">게시</button>
-                    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
-                </form>
-                <div class="post-detail-reply">
-                    <p th:text="'댓글 ' + ${totalCount} + '개'"></p>
-                </div>
-                <div class="reply-form" th:each="reply : ${replies}">
-                    <div th:if="${post.id == reply.getPost().getId()}">
-                        <p class="reply-writer" th:text="${reply.getUser().getUsername()}">작성자</p>
-                        <p class="reply-content" th:text="${reply.contents}">내용</p>
-                        <form th:action="@{/post/reply/{id}/sub(id=${reply.id})}" method="post">
-                            <div class="sub-reply-form" id="sub-reply-form-${reply.id}" style="display: none;">
-                                <input type="text" name="contents" placeholder="대댓글 달기..">
-                                <button type="submit">게시</button>
-                            </div>
-                        </form>
-                        <div class="reply-form-sub" th:each="subReply : ${reply.subReplies}">
-                            <p>
-                                <span class="reply-sub-myName" style="font-weight: bold" th:text="${subReply.user.username}"></span><br/>
-                                <i class="fa-solid fa-reply"></i>
-                                <span class="reply-sub-username" th:text="${reply.getUser().username}"></span>
-                                <span th:text="${subReply.contents}"></span>
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
-    <!-- secondary-a -->
-    <aside class="secondary secondary-a">
-    </aside>
-    <!-- secondary-b -->
-    <aside class="secondary secondary-b">
-    </aside>
 </div>
-<!-- footer -->
 <footer class="footer">
     <a href="https://github.com/asoostale">
         <span>github.com/asoostale <i class="fab fa-github"></i></span><br/>
@@ -113,6 +91,7 @@
         <p><a href="tel:01030619579">TEL : 010-3061-9579</a></p>
     </a>
 </footer>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.post-delete-button').forEach(button => {
@@ -122,32 +101,13 @@
                 }
             });
         });
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.reply-content').forEach(reply => {
             reply.addEventListener('click', function () {
-                const replyContent = reply.textContent.trim();
-                // document.getElementById('sub-reply-input').value = `${replyContent}`;
-
-
-                document.querySelector('.sub-reply-form').style.display = 'block';
-            });
-        });
-        document.getElementById('sub-reply-submit').addEventListener('click', function () {
-            const subReplyContent = document.getElementById('sub-reply-input').value.trim();
-            document.querySelector('.sub-reply-form').style.display = 'none';
-        });
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.reply-content').forEach(reply => {
-            reply.addEventListener('click', function () {
-                const formId = "sub-reply-form-" + this.nextElementSibling.querySelector('form').id;
-                document.getElementById(formId).style.display = 'block';
+                const subReplyForm = this.nextElementSibling;
+                subReplyForm.style.display = 'block';
             });
         });
     });
-
 </script>
 </body>
 </html>
