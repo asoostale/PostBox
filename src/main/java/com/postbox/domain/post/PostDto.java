@@ -18,7 +18,6 @@ public class PostDto {
     private int viewCount;
 
 
-
     public PostDto() {
     }
 

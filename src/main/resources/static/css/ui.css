@@ -300,6 +300,11 @@ join {
 
 .button-write {
     border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #EEEEEE;
+    text-decoration: none;
+    color: black;
 }
 
 .post-detail-reply {

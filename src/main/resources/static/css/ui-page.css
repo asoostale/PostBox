@@ -15,18 +15,20 @@
     height: 45px;
 
 }
-.post-writer{
+
+.post-writer {
     font-size: 15px;
     font-weight: bold;
     border-right: 1px solid #74777A;
     padding-left: 5px;
     padding-right: 5px;
 }
+
 .primary {
     background-color: white;
-    min-height: 50px;    /* 최소 높이 설정 */
-    height: auto;        /* 내용에 따라 높이가 자동 조절 */
-    width: 300px;        /* 너비 고정 (적절히 조정 필요) */
+    min-height: 50px; /* 최소 높이 설정 */
+    height: auto; /* 내용에 따라 높이가 자동 조절 */
+    width: 300px; /* 너비 고정 (적절히 조정 필요) */
     overflow-y: auto;
     box-sizing: border-box; /* 테두리와 패딩 포함 크기 계산 */
     padding: 10px;
@@ -62,7 +64,6 @@
 }
 
 
-
 #modal-switch:checked ~ label[for="modal-switch"]:before {
     color: dodgerblue;
 }
@@ -80,6 +81,7 @@ label[for="modal-switch"] span {
 @media (min-width: 400px) {
     .page {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
     }
 
@@ -97,7 +99,7 @@ label[for="modal-switch"] span {
 
     .primary {
         order: 2;
-        width: 60%;
+        width: 75%;
         display: flex;
         justify-content: center;
     }
@@ -182,15 +184,31 @@ label[for="modal-switch"] span {
     border-radius: 5px;
 
 }
+
 .margin-login {
     margin-right: 65px;
     font-size: 20px;
     margin-bottom: 1px;
     padding: 2px;
 }
+
+.margin-login-button {
+
+    margin-right: 65px;
+    text-decoration: none;
+    color: #78859A;
+    font-size: 20px;
+    margin-bottom: 1px;
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #2C4161;
+}
+
 .login-link {
     color: inherit;
 }
+
 .login-logo {
     width: 400px;
     padding: 50px;
@@ -224,6 +242,7 @@ label[for="modal-switch"] span {
     border: 2px solid #D3D3D3;
     border-radius: 5px;
 }
+
 .post-detail {
     padding-left: 20px;
     padding-right: 20px;
@@ -232,6 +251,7 @@ label[for="modal-switch"] span {
     height: 900px;
     background-color: white;
 }
+
 .post-detail-title {
     font-size: 20px;
     color: #000000;
@@ -245,12 +265,13 @@ label[for="modal-switch"] span {
 .post-detail-writer {
     font-size: 13px;
     color: #5A5D5F;
-background-color: #F1F7FF;
+    background-color: #F1F7FF;
 }
 
 .post-detail-content {
     padding: 20px;
 }
+
 .post-detail-category {
     font-weight: bold;
     color: #2D4261;
@@ -260,7 +281,8 @@ background-color: #F1F7FF;
     margin-bottom: 30px;
 
 }
-.post-view{
+
+.post-view {
     float: right;
     padding-right: 20px;
 }
