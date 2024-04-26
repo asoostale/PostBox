@@ -63,3 +63,24 @@ button {
 	color: white;
 	background: mediumseagreen;
 }
+.flex-i-container {
+	display: flex;
+	align-items: center; /* 세로 중앙 정렬 */
+}
+.flex-i-container a,
+.flex-i-container form {
+	margin-right: 10px; /* 요소 사이의 간격 */
+}
+.board-list {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed; /* 추가된 부분 */
+}
+
+.title-table{
+	border-bottom: 1px solid #D3D3D3;
+	padding: 20px;
+}
+.date{
+	border-bottom: 1px solid #D3D3D3;
+}
