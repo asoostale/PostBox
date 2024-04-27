@@ -35,18 +35,27 @@
     </ul>
     <section class="primary">
         <div class="post-detail">
-            <a link rel="stylesheet" class="post-detail-category" th:href="@{/board-free}">PostBox</a>
-            <div class="post-detail-title" th:text="${post.title}">제목</div>
-            <div th:if="${username == post.getUsername()}">
-                <a class="post-edit-button" th:href="@{/post/{id}/edit(id=${post.id})}">수정</a>
+            <a link rel="stylesheet" class="post-detail-category" th:href="@{/board-free}">PostBox</a><br/>
+            <div>
+                <div class="post-detail-title" th:text="${post.title + ' (' + totalCount + ')'}">제목</div>
+
+
+
+                <span th:if="${username == post.getUsername()}">
+        <a class="post-edit-button" th:href="@{/post/{id}/edit(id=${post.id})}">수정</a>
+    </span>
+                <span th:if="${username == post.getUsername()}">
+    <form th:action="@{/post/{id}/remove(id=${post.id})}" method="post" style="display: inline;">
+        <button class="post-delete-button" data-id="${post.id}">삭제</button>
+    </form>
+            </span>
             </div>
-            <form th:action="@{/post/{id}/remove(id=${post.id})}" method="post">
-                <button class="post-delete-button" data-id="${post.id}">삭제</button>
-            </form>
             <div class="post-detail-writer">
                 <span class="post-writer" th:text="${post.username}"/>
-                <span th:text="'작성일시 : ' + ${#temporals.format(post.writeAt, 'yyyy-MM-dd HH:mm')}"/>
-                <span class="post-view" th:text="'조회수 : ' + ${post.getViewCount()}"/>
+                <span class="post-view">작성일시 : <strong
+                        th:text="${#temporals.format(post.writeAt, 'yyyy-MM-dd HH:mm ')}"></strong></span>
+                <span class="post-view">조회수 : <strong th:text="${post.getViewCount()}"></strong></span>
+
             </div>
             <div class="post-detail-content-box">
                 <p class="post-detail-content" th:text="${post.getContent()}">내용</p>
@@ -61,7 +70,8 @@
             </div>
             <div th:each="reply, stat : ${replies}" class="reply-form">
                 <p class="reply-writer">
-                    <strong th:text="${reply.getUser().getUsername()}"></strong> at <span th:text="${#temporals.format(reply.writeAt, 'yyyy-MM-dd HH:mm')}">작성자</span>
+                    <strong th:text="${reply.getUser().getUsername()}"></strong> at <span
+                        th:text="${#temporals.format(reply.writeAt, 'yyyy-MM-dd HH:mm')}">작성자</span>
                 </p>
 
                 <p class="reply-content" th:text="${reply.contents}">내용</p>
@@ -69,11 +79,12 @@
                     <p>
                         <span class="reply-sub-myName" style="font-weight: bold"
                               th:text="${subReply.user.username}"></span>
-                        <span class="sub-replies-date" th:text="${#temporals.format(subReply.writeAt, 'yyyy-MM-dd')}"></span>
+                        <span class="sub-replies-date"
+                              th:text="${#temporals.format(subReply.writeAt, 'yyyy-MM-dd')}"></span>
                         <br/>
                         <i class="fa-brands fa-replyd"></i>
                         <span class="reply-sub-username" th:text="${reply.getUser().username}"></span>
-                        <span th:text="${subReply.contents}"></span>
+                        <span th:text="${subReply.contents}"></span><hr/>
                     </p>
 
                 </div>

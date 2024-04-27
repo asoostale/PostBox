@@ -20,15 +20,15 @@ public interface PostRepository extends JpaRepository<Post, Long>, PostRepositor
     @Query("SELECT p FROM Post p WHERE p.categoryTest = '추천' ORDER BY p.id DESC")
     List<Post> findAllRecommend();
 
-    @Query("select p from Post p join fetch p.user where p.categoryTest = '자유'")
+    @Query("select p from Post p join fetch p.user where p.categoryTest = '자유' order by p.writeAt DESC")
     List<Post> findPostWithViewCountAndUserFree();
 
-    @Query("select p from Post p join fetch p.user where p.categoryTest = '추천'")
+    @Query("select p from Post p join fetch p.user where p.categoryTest = '추천' order by p.writeAt DESC")
     List<Post> findPostWithViewCountAndUserFeature();
 
-    @Query("select p from Post p join fetch p.user where p.categoryTest = '공지사항'")
+    @Query("select p from Post p join fetch p.user where p.categoryTest = '공지사항' order by p.writeAt DESC")
     List<Post> findPostWithViewCountAndUserAnnounce();
 
-    @Query("select p from Post p join fetch p.user where p.categoryTest = '질문'")
+    @Query("select p from Post p join fetch p.user where p.categoryTest = '질문' order by p.writeAt DESC")
     List<Post> findPostWithViewCountAndUserQuestion();
 }

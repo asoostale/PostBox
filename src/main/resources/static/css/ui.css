@@ -2,6 +2,12 @@ body {
     box-sizing: border-box;
 }
 
+hr{
+    background: #EEEEEE;
+    height:1px;
+    border:0;
+
+}
 
 /* menu */
 .menu {
@@ -333,7 +339,12 @@ join {
 }
 
 .reply-submit {
-    color: #a8d4fa;
+    color: black;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: #F1F7FF;
+
 }
 
 .reply-form {
@@ -352,20 +363,40 @@ join {
 }
 
 .reply-content {
-    font-size: 12px;
+    font-size: 25px;
     padding: 25px;
     border-bottom: 1px solid #EEEEEE;
     background-color: white;
 }
 
 .post-edit-button {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    padding: 3px;
+    justify-content: right;
     border: 1px solid black;
     background-color: #F1F7FF;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    width: 40px;
+    height: 25px;
+    font-size: 15px;
 }
 
 .post-delete-button {
+    display: inline-block; /* 요소들을 인라인 블록으로 설정하여 한 줄에 표시 */
+    vertical-align: middle; /* 수직 중앙 정렬 */
+    margin-right: 10px; /* 요소 사이에 간격 추가 */
+    font-size: 15px;
     border: 1px solid black;
     background-color: #F1F7FF;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    width: 40px;
+    height: 25px;
 }
 
 .logout-button {
@@ -393,7 +424,8 @@ join {
     background-color: #E8E8E8;
     border-radius: 5px;
     padding: 10px;
-    font-size: 15px;
+    font-size: 20px;
+    align-items: center;
 }
 
 .reply-writer-sub {
@@ -434,8 +466,8 @@ join {
 
 .reply-sub-myName {
     font-weight: bold;
-    padding-left: 88px;
-    font-size: 25px;
+ margin-right: 10px;
+    font-size: 20px;
 
 }
 
@@ -450,4 +482,6 @@ join {
 }
 .post-text {
     color: #497BA5;
+    font-weight: bold;
+    margin-top: 5px;
 }

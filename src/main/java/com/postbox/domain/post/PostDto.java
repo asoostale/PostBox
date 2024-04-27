@@ -1,10 +1,12 @@
 package com.postbox.domain.post;
 
+import com.postbox.domain.post.reply.Reply;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.userdetails.User;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +18,8 @@ public class PostDto {
     private LocalDateTime writeAt;
     private CategoryTest categoryTest;
     private int viewCount;
+
+
 
 
     public PostDto() {

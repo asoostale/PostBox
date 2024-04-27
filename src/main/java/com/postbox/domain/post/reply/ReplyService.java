@@ -46,4 +46,13 @@ public class ReplyService {
         return allReplies;
     }
 
+    public List<Reply> findByPostId(Long id) {
+        List<Reply> replies = replyRepository.replyWherePostId(id);
+        replies.stream()
+                .map(r -> new ReplyDto(r.getContents(), r.getWriteAt(), r.getUser().getUsername()))
+                .collect(Collectors.toList());
+        return  replies;
+
+    }
+
 }

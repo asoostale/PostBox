@@ -90,7 +90,7 @@ public class PostController {
         Post post = postService.updateViewCount(id);
         PostDto findPost = postService.findById(id);
         findPost.setViewCount(post.getViewCount());
-        List<Reply> replies = replyService.allComments();
+        List<Reply> replies = replyService.findByPostId(id);
         long totalCount = replyRepository.totalCount(id);
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
 

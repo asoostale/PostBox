@@ -63,7 +63,8 @@
                         </tr>
                         <tr th:each="post : ${posts}" style="width: 100%">
                             <td><a th:href="@{/post/{id}(id=${post.id})}" class="board-link">
-                                <span th:text="${post.title}"></span>
+                                <span  class="post-text" th:text="${post.title}"></span>
+<!--                                <span th:text="${post.}"></span>-->
                             </a>
                             </td>
                             <td><span th:text="${post.getUsername()}">작성자</span>  </td>

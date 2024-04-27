@@ -20,8 +20,7 @@
     font-size: 15px;
     font-weight: bold;
     border-right: 1px solid #74777A;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 8px;
 }
 
 .primary {
@@ -253,19 +252,26 @@ label[for="modal-switch"] span {
 }
 
 .post-detail-title {
+
+    display: inline-block; /* 요소들을 인라인 블록으로 설정하여 한 줄에 표시 */
+    vertical-align: middle; /* 수직 중앙 정렬 */
+    margin-right: 10px; /* 요소 사이에 간격 추가 */
     font-size: 20px;
     color: #000000;
     font-weight: bold;
     padding-left: 20px;
     padding-bottom: 5px;
-    border-bottom: 1px solid #2D4261;
+    margin-bottom: 20px;
+
 
 }
 
 .post-detail-writer {
+
     font-size: 13px;
     color: #5A5D5F;
     background-color: #F1F7FF;
+    padding: 10px;
 }
 
 .post-detail-content {
@@ -284,7 +290,8 @@ label[for="modal-switch"] span {
 
 .post-view {
     float: right;
-    padding-right: 20px;
+    margin-left: 15px;
+    font-size: 15px;
 }
 
 .post-detail-content-box {
