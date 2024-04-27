@@ -60,15 +60,18 @@
                 <p th:text="'댓글 ' + ${totalCount} + '개'"></p>
             </div>
             <div th:each="reply, stat : ${replies}" class="reply-form">
-                <p class="reply-writer"
-                   th:text="${reply.getUser().getUsername()} + ' at ' + ${#temporals.format(reply.writeAt, 'yyyy-MM-dd HH:mm')}">
-                    작성자</p>
+                <p class="reply-writer">
+                    <strong th:text="${reply.getUser().getUsername()}"></strong> at <span th:text="${#temporals.format(reply.writeAt, 'yyyy-MM-dd HH:mm')}">작성자</span>
+                </p>
+
                 <p class="reply-content" th:text="${reply.contents}">내용</p>
                 <div class="reply-form-sub" th:each="subReply : ${reply.subReplies}">
                     <p>
                         <span class="reply-sub-myName" style="font-weight: bold"
-                              th:text="${subReply.user.username}"></span><br/>
-                        <i class="fa-solid fa-reply"></i>
+                              th:text="${subReply.user.username}"></span>
+                        <span class="sub-replies-date" th:text="${#temporals.format(subReply.writeAt, 'yyyy-MM-dd')}"></span>
+                        <br/>
+                        <i class="fa-brands fa-replyd"></i>
                         <span class="reply-sub-username" th:text="${reply.getUser().username}"></span>
                         <span th:text="${subReply.contents}"></span>
                     </p>

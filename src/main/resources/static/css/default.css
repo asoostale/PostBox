@@ -84,3 +84,29 @@ button {
 .date{
 	border-bottom: 1px solid #D3D3D3;
 }
+
+.sub-replies-date {
+	color: #898989;
+}
+.button-write-submit {
+	border: 1px solid grey;
+	border-radius: 5px;
+	background-color: #DCECFF;
+}
+
+.text-area {
+	width: 900px;
+
+	height: 400px;
+
+}
+.select-box-category {
+	width: 160px;
+	height: 30px;
+	margin-bottom: 10px;
+}
+.write-title {
+	width: 900px;
+	height: 30px;
+	margin-bottom: 10px;
+}

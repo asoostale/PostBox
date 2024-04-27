@@ -52,17 +52,17 @@
                 <h2 class="main-title-board">글 작성</h2>
                 <div class="board-write">
                     <form th:action="@{/board-write}" method="post" th:object="${postForm}">
-                        <select th:field="*{categoryTest}">
+                        <select th:field="*{categoryTest}" class="select-box-category">
                             <option value="">카테고리를 선택해주세요.</option>
                             <option th:each="category : ${allCategories}"
                                     th:value="${category}"
                                     th:text="${category}">카테고리
                             </option>
                         </select>
-                        <input type="text" name="title" placeholder="제목을 입력해주세요." th:field="*{title}"> <br/>
+                        <input class="write-title" type="text" name="title" placeholder="제목을 입력해주세요." th:field="*{title}"> <br/>
                         <textarea name="content" cols="30" rows="10" placeholder="내용을 입력해주세요."
-                                  th:field="*{content}"></textarea><br/>
-                        <button>제출</button>
+                                  class="text-area" th:field="*{content}"></textarea><br/>
+                        <button class="button-write-submit">📪 제출</button>
                     </form>
                 </div>
             </li>
