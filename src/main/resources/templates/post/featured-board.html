@@ -66,7 +66,7 @@
                         </tr>
                         <tr th:each="post : ${posts}" style="width: 100%">
                             <td><a th:href="@{/post/{id}(id=${post.id})}" class="board-link">
-                                <span th:text="${post.title}"></span>
+                                <span class="post-text" th:text="${post.title}">제목</span>
                             </a>
                             </td>
                             <td><span th:text="${post.getUsername()}">작성자</span>  </td>
@@ -82,8 +82,8 @@
                                 <option value="content">내용</option>
                                 <option value="titleAndContent">제목+내용</option>
                             </select>
-                            <input type="text" name="searchValue" placeholder="검색어 입력">
-                            <button type="submit">Search</button>
+                            <input type="text" name="searchValue" placeholder="검색어 입력" class="search-input">
+                            <button type="submit" style="background-color: #DCECFF; border: 1px solid black; border-radius: 5px; height: 35px">Search</button>
                         </form>
                     </div>
                 </div>

@@ -110,3 +110,16 @@ button {
 	height: 30px;
 	margin-bottom: 10px;
 }
+
+.search-input {
+	width: 300px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+.search-input-select {
+
+	height: 35px;
+	border-radius: 5px;
+	border: 1px solid black;
+}
