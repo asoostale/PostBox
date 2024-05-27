@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="css/ui-page.css">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/9eb162ac0d.js" crossorigin="anonymous"></script>
+    <!-- typeit -->
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <script type="module" th:src="@{/src/type.js}" defer></script>
 </head>
 <body>
 <div class="page">
@@ -19,13 +22,14 @@
         <a href="/" th:href="@{/}">
             <img src="/img/logo.png" alt="홈으로" class="header-logo">
         </a>
+        <p><strong class="typeItText"> 면접관님들 환영합니다.</strong></p>
         <div class="welcome-container" sec:authorize="isAuthenticated()">
             <p class="welcome-text" th:text="${username} + '님 환영합니다.'"></p>
         </div>
         <div sec:authorize="isAuthenticated()">
             <a href="/logout" class="btn margin-login-button" th:href="@{/logout}">로그아웃</a>
         </div>
-        <div sec:authorize="!isAuthenticated()" >
+        <div sec:authorize="!isAuthenticated()">
             <a href="/login" class="btn margin-login-button">로그인</a>
 
 

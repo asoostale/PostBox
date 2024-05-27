@@ -1,6 +1,7 @@
 package com.postbox.domain.post;
 
 import com.postbox.domain.post.reply.*;
+import jakarta.persistence.Id;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.mbeans.SparseUserDatabaseMBean;
 import org.springframework.security.core.Authentication;
@@ -144,6 +145,7 @@ public class PostController {
     public String searchPostListPage() {
         return "";
     }
+
 
 
     @PostMapping("/post/search-list")

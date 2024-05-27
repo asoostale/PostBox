@@ -485,3 +485,8 @@ join {
     font-weight: bold;
     margin-top: 5px;
 }
+
+.typeItText {
+    font-size: 50px;
+    justify-content: center;
+}
