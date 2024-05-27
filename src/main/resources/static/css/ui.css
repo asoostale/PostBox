@@ -490,3 +490,8 @@ join {
     font-size: 50px;
     justify-content: center;
 }
+
+.highlight {
+    color: #487BA6; /* 글씨 색깔을 빨간색으로 */
+    font-size: 2em; /* 폰트 크기를 2배로 */
+}
