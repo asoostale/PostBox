@@ -1,11 +1,17 @@
+@font-face {
+	font-family: "성실체";
+	src: url("성실체.ttf");
+}
+
 html {
-	font-family: 'Apple SD Gothic Neo', Roboto, 'Noto Sans KR', NanumGothic, 'Malgun Gothic', sans-serif;
+	/*font-family: 'Apple SD Gothic Neo', Roboto, 'Noto Sans KR', NanumGothic, 'Malgun Gothic', sans-serif;*/
 	color: #555;
 	line-height: 1.2;
 	word-wrap: break-word;
 }
 body {
 	background: #eee;
+	font-family: "성실체", sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
 html, body, div, span, applet, object, iframe,

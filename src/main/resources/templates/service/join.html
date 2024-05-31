@@ -59,7 +59,7 @@
                         <input class="input-service" type="password" placeholder="비밀번호 확인"><br>
                         <input class="input-service" type="text" placeholder="[선택]이메일" th:field="*{email}"><br>
                         <input type="hidden" name="_csrf" th:value="${_csrf.token}">
-                        <button type="submit" class="login-button">인증요청</button>
+                        <button type="submit" class="login-button" onclick="checkJoin()">인증요청</button>
                     </form>
                 </div>
             </li>
@@ -113,6 +113,11 @@
     // 입력할 때마다 checkPasswords 함수 실행
     password.addEventListener('input', checkPasswords);
     confirmPassword.addEventListener('input', checkPasswords);
+
+    function checkJoin() {
+        let message = "회원가입 하시겠습니까?";
+        confirm(message)
+    }
 </script>
 
 </body>

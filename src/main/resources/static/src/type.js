@@ -18,7 +18,7 @@ new TypeIt('.typeItText',{
     .type('꾸준히 공부하는 개발자가 되겠습니다', {speed: 200})
     .pause(3000)
     .delete()
-    .type('모두 건강 챙기시고 행복하세요!❤️❤️❤️', {speed: 600})
+    .type('모두 건강 챙기시고 행복하세요!❤❤❤❤❤ ', {speed: 600})
     .pause(3000)
     .delete()
     .go();
