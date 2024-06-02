@@ -16,7 +16,7 @@
     <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
     <script type="module" th:src="@{/src/type.js}" defer></script>
 </head>
-<body>
+<body onload="start()">
 <div class="page">
     <!-- header -->
     <header class="header">
@@ -30,8 +30,8 @@
         <div sec:authorize="isAuthenticated()">
             <a href="/logout" class="btn margin-login-button" th:href="@{/logout}">로그아웃</a>
         </div>
-        <div sec:authorize="!isAuthenticated()">
-            <a href="/login" class="btn margin-login-button">로그인</a>
+        <div sec:authorize="!isAuthenticated()" >
+            <a href="/login" class="btn margin-login-button" id = "msgLogin">로그인</a>
 
 
         </div>
@@ -144,6 +144,18 @@
 
 <input type="checkbox" id="modal-switch">
 
+<script>
+    let msg;
 
+    function start() {
+        msg = document.getElementById("msgLogin");
+        msg.addEventListener("mouseover", msgAboutSecurity);
+    }
+
+    function msgAboutSecurity() {
+        let message = "회원가입, 로그인 암호는 시큐리티 Bcrypt를 사용하였습니다.";
+        alert(message);
+    }
+</script>
 </body>
 </html>
